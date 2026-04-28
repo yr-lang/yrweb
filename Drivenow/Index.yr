@@ -1,0 +1,2377 @@
+!! @wrapper
+
+>>
+
+_meta charset="UTF-8"
+_meta name="viewport" content="width=device-width, initial-scale=1.0"
+_title
+  DriveNow – Premium Car Rental
+_meta name="description" content="DriveNow – Rent a car in minutes. Premium fleet, best prices, instant booking."
+_link rel="preconnect" href="https://fonts.googleapis.com"
+_link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"
+
+
+##
+
+/* ══════════════════════════════════════════
+TOKENS
+══════════════════════════════════════════ */
+:root {
+  --ink:#08091A;
+  --ink2:#141626;
+  --ink3:#252A40;
+  --gold:#F0A500;
+  --gold-light:#FFD166;
+  --gold-dark:#C88200;
+  --ice:#F5F7FC;
+  --ice2:#EDF0F8;
+  --white:#FFFFFF;
+  --green:#22C55E;
+  --red:#EF4444;
+  --muted:#8A90A8;
+  --border:#E4E8F0;
+  --r:18px;
+  --r-sm:10px;
+  --shadow:0 12px 48px rgba(8, 9, 26, .14);
+  --shadow-sm:0 2px 14px rgba(8, 9, 26, .08);
+  --shadow-gold:0 8px 32px rgba(240, 165, 0, .35);
+}
+
+*, *::before, *::after {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html {
+  scroll-behavior:smooth;
+  font-size:16px;
+}
+
+body {
+  font-family:'DM Sans', sans-serif;
+  background:var(--white);
+  color:var(--ink);
+  overflow-x:hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family:'Syne', sans-serif;
+  line-height:1.15;
+}
+
+a {
+  text-decoration:none;
+  color:inherit;
+}
+
+button {
+  cursor:pointer;
+  font-family:'DM Sans', sans-serif;
+  border:none;
+}
+
+input, select, textarea {
+  font-family:'DM Sans', sans-serif;
+  outline:none;
+}
+
+img {
+  max-width:100%;
+  display:block;
+}
+
+ul {
+  list-style:none;
+}
+
+/* ══ HELPERS ══ */
+.container {
+  max-width:1240px;
+  margin:0 auto;
+  padding:0 5%;
+}
+
+.hidden {
+  display:none!important;
+}
+
+.section-tag {
+  display:inline-block;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  padding:5px 16px;
+  border-radius:50px;
+  background:rgba(240, 165, 0, .12);
+  color:var(--gold-dark);
+  margin-bottom:12px;
+}
+
+/* ══ TOAST ══ */
+#toast {
+  position:fixed;
+  bottom:32px;
+  left:50%;
+  transform:translateX(-50%) translateY(120px);
+  background:var(--ink2);
+  color:#fff;
+  padding:14px 30px;
+  border-radius:50px;
+  font-size:.9rem;
+  font-weight:500;
+  z-index:9999;
+  transition:transform .4s cubic-bezier(.34, 1.56, .64, 1);
+  pointer-events:none;
+  white-space:nowrap;
+  box-shadow:0 8px 32px rgba(0, 0, 0, .3);
+}
+
+#toast.show {
+  transform:translateX(-50%) translateY(0);
+}
+
+/* ══════════════════════════════════════════
+NAVBAR
+══════════════════════════════════════════ */
+#navbar {
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:600;
+  padding:0;
+  transition:all .4s ease;
+}
+
+#navbar.scrolled {
+  background:rgba(8, 9, 26, .93);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  box-shadow:0 2px 32px rgba(0, 0, 0, .4);
+}
+
+.nav-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 5%;
+}
+
+/* LOGO */
+.logo {
+  display:flex;
+  align-items:center;
+  gap:11px;
+}
+
+.logo-icon {
+  width:40px;
+  height:40px;
+  background:var(--gold);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.logo-icon svg {
+  width:24px;
+  height:24px;
+}
+
+.logo-text {
+  font-family:'Syne', sans-serif;
+  font-size:1.5rem;
+  font-weight:800;
+  color:#fff;
+  letter-spacing:-.5px;
+}
+
+.logo-text span {
+  color:var(--gold);
+}
+
+.nav-links {
+  display:flex;
+  gap:32px;
+}
+
+.nav-links a {
+  color:rgba(255, 255, 255, .7);
+  font-size:.9rem;
+  font-weight:500;
+  transition:color .2s;
+  padding:4px 0;
+}
+
+.nav-links a:hover {
+  color:var(--gold);
+}
+
+.nav-right {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.lang-pill {
+  display:flex;
+  background:rgba(255, 255, 255, .08);
+  border-radius:50px;
+  padding:4px;
+  border:1px solid rgba(255, 255, 255, .12);
+}
+
+.lang-opt {
+  padding:5px 12px;
+  border-radius:50px;
+  font-size:.78rem;
+  font-weight:700;
+  color:rgba(255, 255, 255, .55);
+  cursor:pointer;
+  transition:all .2s;
+  letter-spacing:.5px;
+}
+
+.lang-opt.active {
+  background:var(--gold);
+  color:var(--ink);
+}
+
+.btn-cta-nav {
+  background:var(--gold);
+  color:var(--ink);
+  border-radius:50px;
+  padding:10px 24px;
+  font-weight:700;
+  font-size:.88rem;
+  transition:transform .2s, box-shadow .2s;
+  margin-left:4px;
+}
+
+.btn-cta-nav:hover {
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-gold);
+}
+
+/* ══════════════════════════════════════════
+HERO
+══════════════════════════════════════════ */
+#hero {
+  min-height:100vh;
+  background:linear-gradient(160deg, #08091A 0%, #141626 50%, #0F1120 100%);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:130px 5% 80px;
+  text-align:center;
+}
+
+/* animated grid bg */
+.hero-grid {
+  position:absolute;
+  inset:0;
+  background-image: linear-gradient(rgba(240, 165, 0, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(240, 165, 0, .055) 1px, transparent 1px);
+  background-size:70px 70px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+
+.hero-glow {
+  position:absolute;
+  width:900px;
+  height:600px;
+  background:radial-gradient(ellipse, rgba(240, 165, 0, .1) 0%, transparent 65%);
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  pointer-events:none;
+}
+
+.hero-glow2 {
+  position:absolute;
+  width:400px;
+  height:400px;
+  background:radial-gradient(circle, rgba(100, 120, 255, .07) 0%, transparent 70%);
+  bottom:-100px;
+  right:5%;
+  pointer-events:none;
+}
+
+.hero-content {
+  position:relative;
+  z-index:1;
+  max-width:860px;
+}
+
+.hero-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(240, 165, 0, .1);
+  border:1px solid rgba(240, 165, 0, .25);
+  color:var(--gold);
+  border-radius:50px;
+  padding:8px 20px;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  margin-bottom:30px;
+}
+
+.live-dot {
+  width:7px;
+  height:7px;
+  background:var(--gold);
+  border-radius:50%;
+  animation:pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity:1;
+    transform:scale(1);
+  }
+
+  50% {
+    opacity:.4;
+    transform:scale(.7);
+  }
+}
+
+.hero h1 {
+  font-size:clamp(2.8rem, 6.5vw, 5.8rem);
+  font-weight:800;
+  color:#fff;
+  line-height:1.06;
+  margin-bottom:24px;
+  letter-spacing:-1px;
+}
+
+.hero h1 .accent {
+  color:var(--gold);
+  color:var(--gold);
+  display:inline-block;
+  position:relative;
+}
+
+.hero h1 .accent::after {
+  content:'';
+  position:absolute;
+  bottom:-6px;
+  left:0;
+  right:0;
+  height:3px;
+  background:linear-gradient(90deg, var(--gold), transparent);
+  border-radius:2px;
+}
+
+.hero-sub {
+  color:rgba(255, 255, 255, .58);
+  font-size:1.15rem;
+  line-height:1.75;
+  margin-bottom:52px;
+  max-width:580px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* BOOKING BAR */
+.booking-bar {
+  background:rgba(255, 255, 255, .06);
+  backdrop-filter:blur(24px);
+  border:1px solid rgba(255, 255, 255, .1);
+  border-radius:24px;
+  padding:28px 28px 24px;
+  max-width:980px;
+  margin:0 auto 44px;
+}
+
+.booking-bar-title {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:rgba(255, 255, 255, .5);
+  font-size:.78rem;
+  font-weight:600;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.booking-bar-title::before {
+  content:'';
+  flex:1;
+  height:1px;
+  background:rgba(255, 255, 255, .08);
+}
+
+.booking-bar-title::after {
+  content:'';
+  flex:1;
+  height:1px;
+  background:rgba(255, 255, 255, .08);
+}
+
+.booking-fields {
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr auto;
+  gap:12px;
+  align-items:end;
+}
+
+.bf-group {
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.bf-group label {
+  color:rgba(255, 255, 255, .45);
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.bf-input {
+  background:rgba(255, 255, 255, .07);
+  border:1.5px solid rgba(255, 255, 255, .12);
+  border-radius:12px;
+  padding:13px 16px;
+  color:#fff;
+  font-size:.93rem;
+  transition:border-color .2s, background .2s;
+  width:100%;
+}
+
+.bf-input::placeholder {
+  color:rgba(255, 255, 255, .3);
+}
+
+.bf-input:focus {
+  border-color:var(--gold);
+  background:rgba(255, 255, 255, .1);
+}
+
+.bf-input option {
+  background:#141626;
+  color:#fff;
+}
+
+.btn-search {
+  background:var(--gold);
+  color:var(--ink);
+  border-radius:12px;
+  padding:14px 28px;
+  font-family:'Syne', sans-serif;
+  font-size:1rem;
+  font-weight:700;
+  white-space:nowrap;
+  transition:transform .2s, box-shadow .2s;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.btn-search:hover {
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-gold);
+}
+
+.btn-search svg {
+  width:18px;
+  height:18px;
+}
+
+.hero-stats {
+  display:flex;
+  gap:48px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.stat {
+  text-align:center;
+}
+
+.stat-val {
+  font-family:'Syne', sans-serif;
+  font-size:2rem;
+  font-weight:800;
+  color:#fff;
+  display:block;
+}
+
+.stat-lbl {
+  font-size:.8rem;
+  color:rgba(255, 255, 255, .4);
+  letter-spacing:.5px;
+  margin-top:2px;
+}
+
+.stat-divider {
+  width:1px;
+  background:rgba(255, 255, 255, .1);
+  align-self:stretch;
+}
+
+/* ══════════════════════════════════════════
+TRUST BAR
+══════════════════════════════════════════ */
+#trust {
+  background:var(--ice);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:28px 5%;
+}
+
+.trust-inner {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:48px;
+  flex-wrap:wrap;
+}
+
+.trust-item {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--ink3);
+  font-size:.9rem;
+  font-weight:500;
+}
+
+.trust-icon {
+  font-size:1.4rem;
+}
+
+.trust-sep {
+  width:1px;
+  height:24px;
+  background:var(--border);
+}
+
+/* ══════════════════════════════════════════
+FLEET
+══════════════════════════════════════════ */
+#fleet {
+  padding:100px 5%;
+}
+
+.section-header {
+  text-align:center;
+  margin-bottom:56px;
+}
+
+.section-header h2 {
+  font-size:clamp(2rem, 4vw, 3rem);
+  font-weight:800;
+  margin-bottom:14px;
+  color:var(--ink);
+}
+
+.section-header p {
+  color:var(--muted);
+  font-size:1.05rem;
+  max-width:520px;
+  margin:0 auto;
+}
+
+.filter-row {
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:44px;
+}
+
+.filter-btn {
+  background:var(--ice);
+  border:2px solid var(--border);
+  border-radius:50px;
+  padding:9px 22px;
+  font-size:.87rem;
+  font-weight:600;
+  color:var(--muted);
+  transition:all .2s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background:var(--ink);
+  border-color:var(--ink);
+  color:#fff;
+}
+
+.fleet-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(330px, 1fr));
+  gap:28px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.car-card {
+  background:#fff;
+  border-radius:var(--r);
+  border:1.5px solid var(--border);
+  overflow:hidden;
+  transition:transform .3s, box-shadow .3s, border-color .3s;
+  cursor:pointer;
+}
+
+.car-card:hover {
+  transform:translateY(-8px);
+  box-shadow:var(--shadow);
+  border-color:transparent;
+}
+
+.car-img {
+  height:210px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:5.5rem;
+  position:relative;
+  overflow:hidden;
+}
+
+.car-img-badge {
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:rgba(8, 9, 26, .72);
+  backdrop-filter:blur(8px);
+  color:#fff !important;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  padding:5px 12px;
+  border-radius:50px;
+  text-shadow:none;
+}
+
+.car-img-avail {
+  position:absolute;
+  top:14px;
+  right:14px;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.5px;
+  padding:5px 12px;
+  border-radius:50px;
+}
+
+.avail-yes {
+  background:rgba(34, 197, 94, .9);
+  color:#fff;
+}
+
+.avail-no {
+  background:rgba(239, 68, 68, .85);
+  color:#fff;
+}
+
+.car-body {
+  padding:22px 22px 18px;
+}
+
+.car-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  margin-bottom:12px;
+}
+
+.car-name {
+  font-family:'Syne', sans-serif;
+  font-size:1.18rem;
+  font-weight:700;
+  color:var(--ink);
+}
+
+.car-sub {
+  font-size:.8rem;
+  color:var(--muted);
+  margin-top:3px;
+}
+
+.car-pricing {
+}
+
+.car-price {
+  font-family:'Syne', sans-serif;
+  font-size:1.5rem;
+  font-weight:800;
+  color:var(--ink);
+}
+
+.car-per {
+  font-size:.75rem;
+  color:var(--muted);
+}
+
+.car-specs {
+  display:flex;
+  gap:14px;
+  padding:14px 0;
+  border-top:1px solid var(--ice2);
+  border-bottom:1px solid var(--ice2);
+  margin-bottom:16px;
+  flex-wrap:wrap;
+}
+
+.spec {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:.81rem;
+  color:#666;
+}
+
+.car-actions {
+  display:flex;
+  gap:10px;
+}
+
+.btn-reserve {
+  flex:1;
+  background:var(--ink);
+  color:#fff;
+  border-radius:var(--r-sm);
+  padding:12px;
+  font-weight:700;
+  font-size:.9rem;
+  transition:background .2s, transform .15s;
+}
+
+.btn-reserve:hover {
+  background:var(--ink2);
+  transform:scale(.98);
+}
+
+.btn-info {
+  background:var(--ice);
+  border-radius:var(--r-sm);
+  padding:12px 16px;
+  font-size:.88rem;
+  font-weight:600;
+  color:var(--ink3);
+  transition:background .2s;
+}
+
+.btn-info:hover {
+  background:var(--ice2);
+}
+
+/* ══════════════════════════════════════════
+HOW IT WORKS
+══════════════════════════════════════════ */
+#how {
+  padding:100px 5%;
+  background:var(--ink);
+  position:relative;
+  overflow:hidden;
+}
+
+#how::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:linear-gradient(rgba(240, 165, 0, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(240, 165, 0, .04) 1px, transparent 1px);
+  background-size:60px 60px;
+}
+
+#how .section-header h2 {
+  color:#fff;
+}
+
+#how .section-header p {
+  color:rgba(255, 255, 255, .5);
+}
+
+#how .section-tag {
+  background:rgba(240, 165, 0, .12);
+  color:var(--gold);
+}
+
+.steps {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:4px;
+  max-width:1000px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+
+.step {
+  text-align:center;
+  padding:40px 28px;
+  border-radius:var(--r);
+  transition:background .3s;
+}
+
+.step:hover {
+  background:rgba(255, 255, 255, .04);
+}
+
+.step-num {
+  width:58px;
+  height:58px;
+  border-radius:18px;
+  background:rgba(240, 165, 0, .12);
+  border:1.5px solid rgba(240, 165, 0, .25);
+  color:var(--gold);
+  font-family:'Syne', sans-serif;
+  font-size:1.3rem;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 20px;
+}
+
+.step-icon {
+  font-size:2.2rem;
+  margin-bottom:14px;
+}
+
+.step h3 {
+  font-size:1.1rem;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:10px;
+}
+
+.step p {
+  font-size:.9rem;
+  color:rgba(255, 255, 255, .48);
+  line-height:1.65;
+}
+
+.step-arrow {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:rgba(240, 165, 0, .3);
+  font-size:1.8rem;
+  padding-top:40px;
+}
+
+/* ══════════════════════════════════════════
+TESTIMONIALS
+══════════════════════════════════════════ */
+#reviews {
+  padding:100px 5%;
+  background:var(--ice);
+}
+
+.reviews-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:24px;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.review-card {
+  background:#fff;
+  border-radius:var(--r);
+  padding:30px;
+  border:1.5px solid var(--border);
+  transition:transform .25s, box-shadow .25s;
+}
+
+.review-card:hover {
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-sm);
+}
+
+.stars {
+  color:var(--gold);
+  font-size:1rem;
+  letter-spacing:2px;
+  margin-bottom:14px;
+}
+
+.review-text {
+  color:var(--ink3);
+  line-height:1.7;
+  font-size:.95rem;
+  margin-bottom:20px;
+}
+
+.reviewer {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.reviewer-avatar {
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:linear-gradient(135deg, var(--gold-light), var(--gold));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--ink);
+  font-family:'Syne', sans-serif;
+  flex-shrink:0;
+}
+
+.reviewer-name {
+  font-weight:700;
+  font-size:.9rem;
+  color:var(--ink);
+}
+
+.reviewer-loc {
+  font-size:.78rem;
+  color:var(--muted);
+  margin-top:2px;
+}
+
+/* ══════════════════════════════════════════
+MODAL DE RESERVA
+══════════════════════════════════════════ */
+.modal-overlay {
+  position:fixed;
+  inset:0;
+  background:rgba(8, 9, 26, .75);
+  backdrop-filter:blur(8px);
+  z-index:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .3s;
+}
+
+.modal-overlay.open {
+  opacity:1;
+  pointer-events:all;
+}
+
+.modal {
+  background:#fff;
+  border-radius:28px;
+  width:100%;
+  max-width:620px;
+  max-height:90vh;
+  overflow-y:auto;
+  transform:scale(.94) translateY(20px);
+  transition:transform .35s cubic-bezier(.34, 1.56, .64, 1);
+  box-shadow:0 32px 80px rgba(8, 9, 26, .35);
+}
+
+.modal-overlay.open .modal {
+  transform:scale(1) translateY(0);
+}
+
+.modal-header {
+  padding:28px 32px 22px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:1;
+  border-radius:28px 28px 0 0;
+}
+
+.modal-title {
+  font-family:'Syne', sans-serif;
+  font-size:1.35rem;
+  font-weight:700;
+}
+
+.modal-close {
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:var(--ice);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.2rem;
+  color:var(--muted);
+  transition:background .2s, color .2s;
+}
+
+.modal-close:hover {
+  background:var(--ice2);
+  color:var(--ink);
+}
+
+.modal-body {
+  padding:28px 32px;
+}
+
+.modal-car-preview {
+  display:flex;
+  align-items:center;
+  gap:18px;
+  background:var(--ice);
+  border-radius:var(--r-sm);
+  padding:16px 20px;
+  margin-bottom:28px;
+}
+
+.modal-car-emoji {
+  font-size:2.8rem;
+}
+
+.modal-car-info .car-name {
+  font-size:1.1rem;
+}
+
+.modal-car-info .car-sub {
+  margin-top:4px;
+}
+
+.modal-car-price {
+  font-family:'Syne', sans-serif;
+  font-size:1.3rem;
+  font-weight:800;
+  color:var(--gold-dark);
+  margin-left:auto;
+  text-align:right;
+}
+
+.modal-car-price small {
+  display:block;
+  font-size:.7rem;
+  color:var(--muted);
+  font-family:'DM Sans', sans-serif;
+  font-weight:400;
+}
+
+.form-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.form-group {
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.form-group.full {
+  grid-column:1/-1;
+}
+
+.form-label {
+  font-size:.8rem;
+  font-weight:600;
+  color:var(--ink3);
+  letter-spacing:.3px;
+}
+
+.form-control {
+  border:1.5px solid var(--border);
+  border-radius:var(--r-sm);
+  padding:12px 16px;
+  font-size:.93rem;
+  color:var(--ink);
+  background:#fff;
+  transition:border-color .2s, box-shadow .2s;
+}
+
+.form-control:focus {
+  border-color:var(--gold);
+  box-shadow:0 0 0 4px rgba(240, 165, 0, .1);
+}
+
+.form-control::placeholder {
+  color:var(--muted);
+}
+
+.price-summary {
+  background:var(--ice);
+  border-radius:var(--r-sm);
+  padding:20px;
+  margin:24px 0;
+}
+
+.price-row {
+  display:flex;
+  justify-content:space-between;
+  font-size:.9rem;
+  color:var(--ink3);
+  padding:6px 0;
+}
+
+.price-row:last-child {
+  border-top:1px solid var(--border);
+  margin-top:8px;
+  padding-top:14px;
+  font-weight:700;
+  color:var(--ink);
+  font-size:1rem;
+}
+
+.price-row span:last-child {
+  font-family:'Syne', sans-serif;
+}
+
+.btn-confirm {
+  width:100%;
+  background:var(--gold);
+  color:var(--ink);
+  border-radius:14px;
+  padding:16px;
+  font-family:'Syne', sans-serif;
+  font-size:1.05rem;
+  font-weight:700;
+  transition:transform .2s, box-shadow .2s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+
+.btn-confirm:hover {
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-gold);
+}
+
+/* ══════════════════════════════════════════
+WHY US
+══════════════════════════════════════════ */
+#why {
+  padding:100px 5%;
+}
+
+.why-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:64px;
+  align-items:center;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.why-img-area {
+  background:linear-gradient(135deg, var(--ink) 0%, var(--ink3) 100%);
+  border-radius:28px;
+  padding:48px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  position:relative;
+  overflow:hidden;
+  min-height:440px;
+  justify-content:flex-end;
+}
+
+.why-img-area::before {
+  content:'🚗';
+  position:absolute;
+  font-size:14rem;
+  top:50%;
+  left:50%;
+  transform:translate(-40%, -55%);
+  opacity:.08;
+  pointer-events:none;
+}
+
+.why-stat-pill {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:rgba(255, 255, 255, .08);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255, 255, 255, .12);
+  border-radius:14px;
+  padding:14px 20px;
+}
+
+.why-stat-pill-val {
+  font-family:'Syne', sans-serif;
+  font-size:1.5rem;
+  font-weight:800;
+  color:var(--gold);
+}
+
+.why-stat-pill-lbl {
+  font-size:.85rem;
+  color:rgba(255, 255, 255, .6);
+}
+
+.why-pill-row {
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.why-points {
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+}
+
+.why-point {
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+}
+
+.why-point-icon {
+  width:46px;
+  height:46px;
+  border-radius:14px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.3rem;
+}
+
+.wpi-gold {
+  background:rgba(240, 165, 0, .12);
+}
+
+.wpi-green {
+  background:rgba(34, 197, 94, .1);
+}
+
+.wpi-blue {
+  background:rgba(59, 130, 246, .1);
+}
+
+.wpi-ink {
+  background:var(--ice);
+}
+
+.why-point-text h4 {
+  font-family:'Syne', sans-serif;
+  font-size:1rem;
+  font-weight:700;
+  margin-bottom:5px;
+}
+
+.why-point-text p {
+  font-size:.88rem;
+  color:var(--muted);
+  line-height:1.65;
+}
+
+/* ══════════════════════════════════════════
+CONTACT / CTA BAND
+══════════════════════════════════════════ */
+#cta {
+  padding:90px 5%;
+  background:linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%);
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+#cta::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:linear-gradient(rgba(255, 255, 255, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .08) 1px, transparent 1px);
+  background-size:50px 50px;
+}
+
+#cta .container {
+  position:relative;
+  z-index:1;
+}
+
+#cta h2 {
+  font-size:clamp(2rem, 4vw, 3.2rem);
+  font-weight:800;
+  color:var(--ink);
+  margin-bottom:14px;
+}
+
+#cta p {
+  color:rgba(8, 9, 26, .65);
+  font-size:1.1rem;
+  margin-bottom:36px;
+}
+
+.cta-btns {
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.btn-cta-white {
+  background:#fff;
+  color:var(--ink);
+  border-radius:50px;
+  padding:15px 34px;
+  font-family:'Syne', sans-serif;
+  font-size:1rem;
+  font-weight:700;
+  transition:transform .2s, box-shadow .2s;
+  box-shadow:0 4px 20px rgba(8, 9, 26, .15);
+}
+
+.btn-cta-white:hover {
+  transform:translateY(-3px);
+  box-shadow:0 12px 36px rgba(8, 9, 26, .22);
+}
+
+.btn-cta-outline {
+  background:transparent;
+  color:var(--ink);
+  border:2px solid rgba(8, 9, 26, .25);
+  border-radius:50px;
+  padding:15px 34px;
+  font-family:'Syne', sans-serif;
+  font-size:1rem;
+  font-weight:700;
+  transition:all .2s;
+}
+
+.btn-cta-outline:hover {
+  background:rgba(8, 9, 26, .08);
+  border-color:rgba(8, 9, 26, .4);
+}
+
+/* ══════════════════════════════════════════
+FOOTER
+══════════════════════════════════════════ */
+footer {
+  background:var(--ink);
+  padding:70px 5% 36px;
+  color:rgba(255, 255, 255, .55);
+}
+
+.footer-grid {
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+  margin-bottom:56px;
+}
+
+.footer-brand .logo {
+  margin-bottom:18px;
+}
+
+.footer-brand p {
+  font-size:.88rem;
+  line-height:1.7;
+  max-width:260px;
+}
+
+.footer-col h5 {
+  font-family:'Syne', sans-serif;
+  font-size:.9rem;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:16px;
+  letter-spacing:.5px;
+}
+
+.footer-col ul {
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.footer-col ul li a {
+  font-size:.87rem;
+  transition:color .2s;
+}
+
+.footer-col ul li a:hover {
+  color:var(--gold);
+}
+
+.footer-bottom {
+  border-top:1px solid rgba(255, 255, 255, .08);
+  padding-top:28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:14px;
+}
+
+.footer-bottom-text {
+  font-size:.82rem;
+}
+
+.footer-socials {
+  display:flex;
+  gap:12px;
+}
+
+.social-btn {
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  background:rgba(255, 255, 255, .06);
+  border:1px solid rgba(255, 255, 255, .1);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1rem;
+  transition:background .2s, color .2s;
+  color:rgba(255, 255, 255, .55);
+}
+
+.social-btn:hover {
+  background:var(--gold);
+  border-color:var(--gold);
+  color:var(--ink);
+}
+
+/* FLOATING WA */
+.wa-float {
+  position:fixed;
+  bottom:28px;
+  right:28px;
+  z-index:500;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#25D366;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.7rem;
+  box-shadow:0 6px 28px rgba(37, 211, 102, .5);
+  transition:transform .2s, box-shadow .2s;
+  animation:wa-pulse 3s infinite;
+}
+
+.wa-float:hover {
+  transform:scale(1.1);
+  box-shadow:0 10px 40px rgba(37, 211, 102, .6);
+  animation:none;
+}
+
+@keyframes wa-pulse {
+  0%, 100% {
+    box-shadow:0 6px 28px rgba(37, 211, 102, .5);
+  }
+
+  50% {
+    box-shadow:0 6px 44px rgba(37, 211, 102, .75);
+  }
+}
+
+/* ══════════════════════════════════════════
+SCROLL REVEAL
+══════════════════════════════════════════ */
+.reveal {
+  opacity:0;
+  transform:translateY(32px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+
+.reveal.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ══════════════════════════════════════════
+RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:900px) {
+  .nav-links {
+    display:none;
+  }
+
+  .booking-fields {
+    grid-template-columns:1fr 1fr;
+  }
+
+  .btn-search {
+    grid-column:1/-1;
+    justify-content:center;
+  }
+
+  .why-grid {
+    grid-template-columns:1fr;
+  }
+
+  .why-img-area {
+    min-height:280px;
+  }
+
+  .footer-grid {
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px) {
+  .booking-fields {
+    grid-template-columns:1fr;
+  }
+
+  .form-grid {
+    grid-template-columns:1fr;
+  }
+
+  .form-group.full {
+    grid-column:1;
+  }
+
+  .footer-grid {
+    grid-template-columns:1fr;
+  }
+
+  .hero-stats {
+    gap:28px;
+  }
+
+  .trust-sep {
+    display:none;
+  }
+}
+
+++
+
+_ #toast
+_nav #navbar
+  _ .nav-inner
+    _a .logo href="#"
+      _ .logo-icon
+        _svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          _path d="M3 13L4.5 8H19.5L21 13" stroke="#08091A" stroke-width="1.8" stroke-linecap="round"
+          _rect x="2" y="13" width="20" height="7" rx="2" fill="#08091A" opacity=".15" stroke="#08091A" stroke-width="1.8"
+          _circle cx="7" cy="20" r="2" fill="#08091A"
+          _circle cx="17" cy="20" r="2" fill="#08091A"
+          _path d="M7 10.5H17" stroke="#08091A" stroke-width="1.5" stroke-linecap="round"
+      _span .logo-wordmark
+        Drive
+        _span
+          Now
+    _ul .nav-links
+      _li
+        _a href="#fleet" data-i18n="nav.fleet"
+          Frota
+      _li
+        _a href="#how" data-i18n="nav.how"
+          Como Funciona
+      _li
+        _a href="#why" data-i18n="nav.why"
+          Por Que Nós
+      _li
+        _a href="#reviews" data-i18n="nav.reviews"
+          Avaliações
+      _li
+        _a href="#cta" data-i18n="nav.contact"
+          Contato
+    _ .nav-right
+      _ .lang-pill
+        _span .lang-opt.active onclick="setLang('pt')"
+          PT
+        _span .lang-opt onclick="setLang('en')"
+          EN
+        _span .lang-opt onclick="setLang('es')"
+          ES
+      _a .btn-cta-nav href="#fleet" data-i18n="nav.book"
+        Reservar Agora
+_section #hero
+  _ .hero-grid
+  _ .hero-glow
+  _ .hero-glow2
+  _ .hero-content
+    _ .hero-badge
+      _span .live-dot
+      _span data-i18n="hero.badge"
+        Disponível 24/7 • Reserve em minutos
+    _h1
+      _span style="color:#fff;" data-i18n="hero.h1a"
+        Dirija com
+      _br
+      _em .accent style="color:var(--gold);font-style:normal;" data-i18n="hero.h1b"
+        liberdade total
+    _p .hero-sub data-i18n="hero.sub"
+      Frota premium, preços imbatíveis e reserva 100% online.
+      _br
+      Do econômico ao luxo — encontre o carro perfeito para você.
+    _ .booking-bar
+      _ .booking-bar-title
+        _span data-i18n="hero.bar_title"
+          Buscar veículo disponível
+      _ .booking-fields
+        _ .bf-group
+          _label data-i18n="form.category"
+            Categoria
+          _select #barCategory .bf-input
+            _option value="" data-i18n="form.all_cat"
+              Todas
+            _option value="economy" data-i18n="cat.economy"
+              Econômico
+            _option value="suv" data-i18n="cat.suv"
+              SUV
+            _option value="luxury" data-i18n="cat.luxury"
+              Luxo
+            _option value="electric" data-i18n="cat.electric"
+              Elétrico
+        _ .bf-group
+          _label data-i18n="form.pickup_date"
+            Retirada
+          _input #barPickup .bf-input type="date"
+        _ .bf-group
+          _label data-i18n="form.return_date"
+            Devolução
+          _input #barReturn .bf-input type="date"
+        _ .bf-group
+          _label data-i18n="form.location"
+            Local
+          _select #barLocation .bf-input
+            _option data-i18n="loc.airport"
+              Aeroporto
+            _option data-i18n="loc.center"
+              Centro
+            _option data-i18n="loc.port"
+              Porto
+            _option data-i18n="loc.hotel"
+              Hotel
+        _button .btn-search onclick="doSearch()"
+          _svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+            _circle cx="11" cy="11" r="8"
+            _line x1="21" y1="21" x2="16.65" y2="16.65"
+          _span data-i18n="form.search"
+            Buscar
+    _ .hero-stats
+      _ .stat
+        _span .stat-val
+          +1.200
+        _span .stat-lbl data-i18n="stat.clients"
+          Clientes
+      _ .stat-divider
+      _ .stat
+        _span .stat-val
+          48
+        _span .stat-lbl data-i18n="stat.fleet"
+          Veículos
+      _ .stat-divider
+      _ .stat
+        _span .stat-val
+          4.9★
+        _span .stat-lbl data-i18n="stat.rating"
+          Avaliação
+      _ .stat-divider
+      _ .stat
+        _span .stat-val
+          24/7
+        _span .stat-lbl data-i18n="stat.support"
+          Suporte
+_ #trust
+  _ .trust-inner
+    _ .trust-item
+      _span .trust-icon
+        ✅
+      _span data-i18n="trust.a"
+        Reserva 100% online
+    _ .trust-sep
+    _ .trust-item
+      _span .trust-icon
+        🔒
+      _span data-i18n="trust.b"
+        Pagamento seguro
+    _ .trust-sep
+    _ .trust-item
+      _span .trust-icon
+        🚗
+      _span data-i18n="trust.c"
+        Frota revisada
+    _ .trust-sep
+    _ .trust-item
+      _span .trust-icon
+        📍
+      _span data-i18n="trust.d"
+        Entrega no seu local
+    _ .trust-sep
+    _ .trust-item
+      _span .trust-icon
+        🔁
+      _span data-i18n="trust.e"
+        Cancelamento grátis
+_section #fleet
+  _ .container
+    _ .section-header.reveal
+      _ .section-tag data-i18n="fleet.tag"
+        Nossa Frota
+      _h2 data-i18n="fleet.h2"
+        Escolha o veículo ideal
+      _p data-i18n="fleet.sub"
+        Do compacto ao premium, temos o carro certo para cada viagem e orçamento.
+    _ .filter-row.reveal
+      _button .filter-btn.active onclick="filterFleet('all',this)" data-i18n="filter.all"
+        Todos
+      _button .filter-btn onclick="filterFleet('economy',this)" data-i18n="filter.economy"
+        Econômico
+      _button .filter-btn onclick="filterFleet('suv',this)" data-i18n="filter.suv"
+        SUV
+      _button .filter-btn onclick="filterFleet('luxury',this)" data-i18n="filter.luxury"
+        Luxo
+      _button .filter-btn onclick="filterFleet('electric',this)" data-i18n="filter.electric"
+        Elétrico
+    _ #fleetGrid .fleet-grid
+_section #how
+  _ .container
+    _ .section-header.reveal
+      _ .section-tag data-i18n="how.tag"
+        Simples assim
+      _h2 data-i18n="how.h2"
+        Como funciona
+      _p data-i18n="how.sub"
+        Reserve em menos de 3 minutos, sem burocracia.
+    _ .steps
+      _ .step.reveal
+        _ .step-num
+          01
+        _ .step-icon
+          🔍
+        _h3 data-i18n="how.s1h"
+          Escolha o carro
+        _p data-i18n="how.s1p"
+          Filtre por categoria, datas e localização. Compare modelos e preços.
+      _ .step-arrow.reveal
+        →
+      _ .step.reveal
+        _ .step-num
+          02
+        _ .step-icon
+          📅
+        _h3 data-i18n="how.s2h"
+          Faça a reserva
+        _p data-i18n="how.s2p"
+          Preencha seus dados, escolha opcionais e confirme online em segundos.
+      _ .step-arrow.reveal
+        →
+      _ .step.reveal
+        _ .step-num
+          03
+        _ .step-icon
+          💳
+        _h3 data-i18n="how.s3h"
+          Pague com segurança
+        _p data-i18n="how.s3p"
+          Cartão, PIX ou link de pagamento. Dados protegidos com criptografia.
+      _ .step-arrow.reveal
+        →
+      _ .step.reveal
+        _ .step-num
+          04
+        _ .step-icon
+          🚗
+        _h3 data-i18n="how.s4h"
+          Retire e dirija!
+        _p data-i18n="how.s4p"
+          Receba a confirmação por e-mail e retire o veículo no local escolhido.
+_section #why
+  _ .container
+    _ .why-grid
+      _ .why-img-area.reveal
+        _ .why-pill-row
+          _ .why-stat-pill
+            _span .why-stat-pill-val
+              +1.2k
+            _span .why-stat-pill-lbl data-i18n="why.stat1"
+              Clientes satisfeitos
+          _ .why-stat-pill
+            _span .why-stat-pill-val
+              4.9★
+            _span .why-stat-pill-lbl data-i18n="why.stat2"
+              Nota média
+        _ .why-stat-pill
+          _span .why-stat-pill-val
+            5 anos
+          _span .why-stat-pill-lbl data-i18n="why.stat3"
+            de experiência no mercado
+      _
+        _ .section-tag.reveal data-i18n="why.tag"
+          Por que escolher a DriveNow
+        _h2 .reveal style="font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;margin:12px 0 36px;" data-i18n="why.h2"
+          Excelência em cada
+          _br
+          detalhe da viagem
+        _ .why-points
+          _ .why-point.reveal
+            _ .why-point-icon.wpi-gold
+              🛡️
+            _ .why-point-text
+              _h4 data-i18n="why.p1h"
+                Frota 100% revisada
+              _p data-i18n="why.p1p"
+                Todos os veículos passam por inspeção completa antes de cada locação.
+          _ .why-point.reveal
+            _ .why-point-icon.wpi-green
+              📱
+            _ .why-point-text
+              _h4 data-i18n="why.p2h"
+                Reserva 100% digital
+              _p data-i18n="why.p2p"
+                Do celular ou computador, sem filas, sem papel, sem complicação.
+          _ .why-point.reveal
+            _ .why-point-icon.wpi-blue
+              🌍
+            _ .why-point-text
+              _h4 data-i18n="why.p3h"
+                Atendimento multilíngue
+              _p data-i18n="why.p3p"
+                Suporte em português, inglês e espanhol. Para turistas e viajantes.
+          _ .why-point.reveal
+            _ .why-point-icon.wpi-ink
+              💰
+            _ .why-point-text
+              _h4 data-i18n="why.p4h"
+                Preço justo e transparente
+              _p data-i18n="why.p4p"
+                Sem taxas escondidas. O que você vê é o que você paga.
+_section #reviews
+  _ .container
+    _ .section-header.reveal
+      _ .section-tag data-i18n="reviews.tag"
+        Avaliações
+      _h2 data-i18n="reviews.h2"
+        O que dizem nossos clientes
+    _ #reviewsGrid .reviews-grid
+_section #cta
+  _ .container
+    _h2 data-i18n="cta.h2"
+      Pronto para a sua próxima aventura?
+    _p data-i18n="cta.sub"
+      Reserve agora e ganhe 10% de desconto na primeira locação.
+    _ .cta-btns
+      _a .btn-cta-white href="#fleet" data-i18n="cta.btn1"
+        Ver Frota Disponível
+      _a .btn-cta-outline href="https://wa.me/5596999999999" target="_blank" data-i18n="cta.btn2"
+        💬 Falar no WhatsApp
+_footer
+  _ .container
+    _ .footer-grid
+      _ .footer-brand
+        _a .logo href="#"
+          _ .logo-icon
+            _svg viewBox="0 0 24 24" fill="none"
+              _path d="M3 13L4.5 8H19.5L21 13" stroke="#08091A" stroke-width="1.8" stroke-linecap="round"
+              _rect x="2" y="13" width="20" height="7" rx="2" fill="#08091A" opacity=".2" stroke="#08091A" stroke-width="1.8"
+              _circle cx="7" cy="20" r="2" fill="#08091A"
+              _circle cx="17" cy="20" r="2" fill="#08091A"
+          _span .logo-wordmark
+            Drive
+            _span
+              Now
+        _p data-i18n="footer.about"
+          Locadora de veículos premium com frota moderna, reservas 100% online e atendimento em 3 idiomas.
+      _ .footer-col
+        _h5 data-i18n="footer.fleet"
+          Frota
+        _ul
+          _li
+            _a href="#" data-i18n="cat.economy"
+              Econômico
+          _li
+            _a href="#" data-i18n="cat.suv"
+              SUV
+          _li
+            _a href="#" data-i18n="cat.luxury"
+              Luxo
+          _li
+            _a href="#" data-i18n="cat.electric"
+              Elétrico
+      _ .footer-col
+        _h5 data-i18n="footer.info"
+          Informações
+        _ul
+          _li
+            _a href="#how" data-i18n="footer.how"
+              Como Funciona
+          _li
+            _a href="#why" data-i18n="footer.why"
+              Por Que Nós
+          _li
+            _a href="#reviews" data-i18n="footer.reviews"
+              Avaliações
+          _li
+            _a href="#" data-i18n="footer.terms"
+              Termos de Uso
+      _ .footer-col
+        _h5 data-i18n="footer.contact"
+          Contato
+        _ul
+          _li
+            _a href="tel:+5596999999999"
+              📞 (96) 9999-9999
+          _li
+            _a href="mailto:contato@drivenow.com.br"
+              ✉️ contato@drivenow.com.br
+          _li
+            _a href="#" data-i18n="footer.address"
+              📍 Macapá, AP – Brasil
+          _li
+            _a href="https://wa.me/5596999999999" target="_blank"
+              💬 WhatsApp
+    _ .footer-bottom
+      _span .footer-bottom-text
+        © 2025 DriveNow.
+        _span data-i18n="footer.rights"
+          Todos os direitos reservados.
+      _ .footer-socials
+        _a .social-btn href="#" title="Instagram"
+          📷
+        _a .social-btn href="#" title="Facebook"
+          👍
+        _a .social-btn href="#" title="TikTok"
+          🎵
+        _a .social-btn href="https://wa.me/5596999999999" target="_blank" title="WhatsApp"
+          💬
+_a .wa-float href="https://wa.me/5596999999999?text=Olá!%20Gostaria%20de%20alugar%20um%20carro." target="_blank" title="WhatsApp"
+  💬
+_ #modalOverlay .modal-overlay onclick="closeModalOut(event)"
+  _ #modal .modal
+    _ .modal-header
+      _span #modalTitle .modal-title data-i18n="modal.title"
+        Fazer Reserva
+      _button .modal-close onclick="closeModal()"
+        ✕
+    _ .modal-body
+      _ #modalCarPreview .modal-car-preview
+      _ .form-grid
+        _ .form-group
+          _label .form-label data-i18n="form.name"
+            Nome completo *
+          _input #fName .form-control type="text" placeholder="João da Silva"
+        _ .form-group
+          _label .form-label data-i18n="form.phone"
+            WhatsApp / Telefone *
+          _input #fPhone .form-control type="tel" placeholder="(96) 9 9999-9999"
+        _ .form-group.full
+          _label .form-label data-i18n="form.email"
+            E-mail *
+          _input #fEmail .form-control type="email" placeholder="joao@email.com"
+        _ .form-group
+          _label .form-label data-i18n="form.pickup_date"
+            Data de retirada *
+          _input #fPickup .form-control type="date"
+        _ .form-group
+          _label .form-label data-i18n="form.return_date"
+            Data de devolução *
+          _input #fReturn .form-control type="date"
+        _ .form-group.full
+          _label .form-label data-i18n="form.location"
+            Local de retirada
+          _select #fLocation .form-control
+            _option data-i18n="loc.airport"
+              Aeroporto Internacional de Macapá
+            _option data-i18n="loc.center"
+              Centro – Sede DriveNow
+            _option data-i18n="loc.port"
+              Terminal Hidroviário
+            _option data-i18n="loc.hotel"
+              Entrega no Hotel (+R$ 30)
+        _ .form-group.full
+          _label .form-label data-i18n="form.extras"
+            Opcionais
+          _ style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;"
+            _label style="display:flex;align-items:center;gap:6px;font-size:.88rem;cursor:pointer;"
+              _input #optGPS type="checkbox"
+              _span data-i18n="opt.gps"
+                GPS – R$ 15/dia
+            _label style="display:flex;align-items:center;gap:6px;font-size:.88rem;cursor:pointer;"
+              _input #optSeat type="checkbox"
+              _span data-i18n="opt.seat"
+                Cadeirinha infantil – R$ 12/dia
+            _label style="display:flex;align-items:center;gap:6px;font-size:.88rem;cursor:pointer;"
+              _input #optInsurance type="checkbox"
+              _span data-i18n="opt.insurance"
+                Seguro completo – R$ 35/dia
+        _ .form-group.full
+          _label .form-label data-i18n="form.notes"
+            Observações
+          _textarea #fNotes .form-control rows="2" placeholder="Informações adicionais..."
+      _ #priceSummary .price-summary
+      _button .btn-confirm onclick="confirmReservation()"
+        _span
+          🎉
+        _span data-i18n="modal.confirm"
+          Confirmar Reserva
+
+
+@>
+
+/* ─── i18n ─── */
+const i18n = {
+  pt:{
+    "nav.fleet":"Frota","nav.how":"Como Funciona","nav.why":"Por Que Nós",
+    "nav.reviews":"Avaliações","nav.contact":"Contato","nav.book":"Reservar Agora",
+    "hero.badge":"Disponível 24/7 • Reserve em minutos",
+    "hero.h1a":"Dirija com","hero.h1b":"liberdade total",
+    "hero.sub":"Frota premium, preços imbatíveis e reserva 100% online.\nDo econômico ao luxo — encontre o carro perfeito para você.",
+    "hero.bar_title":"Buscar veículo disponível",
+    "form.category":"Categoria","form.all_cat":"Todas","form.pickup_date":"Retirada",
+    "form.return_date":"Devolução","form.location":"Local","form.search":"Buscar",
+    "form.name":"Nome completo *","form.phone":"WhatsApp / Telefone *",
+    "form.email":"E-mail *","form.extras":"Opcionais","form.notes":"Observações",
+    "cat.economy":"Econômico","cat.suv":"SUV","cat.luxury":"Luxo","cat.electric":"Elétrico",
+    "loc.airport":"Aeroporto","loc.center":"Centro","loc.port":"Porto","loc.hotel":"Hotel",
+    "stat.clients":"Clientes","stat.fleet":"Veículos","stat.rating":"Avaliação","stat.support":"Suporte",
+    "trust.a":"Reserva 100% online","trust.b":"Pagamento seguro","trust.c":"Frota revisada",
+    "trust.d":"Entrega no seu local","trust.e":"Cancelamento grátis",
+    "fleet.tag":"Nossa Frota","fleet.h2":"Escolha o veículo ideal",
+    "fleet.sub":"Do compacto ao premium, temos o carro certo para cada viagem e orçamento.",
+    "filter.all":"Todos","filter.economy":"Econômico","filter.suv":"SUV",
+    "filter.luxury":"Luxo","filter.electric":"Elétrico",
+    "how.tag":"Simples assim","how.h2":"Como funciona","how.sub":"Reserve em menos de 3 minutos, sem burocracia.",
+    "how.s1h":"Escolha o carro","how.s1p":"Filtre por categoria, datas e localização. Compare modelos e preços.",
+    "how.s2h":"Faça a reserva","how.s2p":"Preencha seus dados, escolha opcionais e confirme online.",
+    "how.s3h":"Pague com segurança","how.s3p":"Cartão, PIX ou link de pagamento. Dados protegidos.",
+    "how.s4h":"Retire e dirija!","how.s4p":"Receba confirmação por e-mail e retire no local escolhido.",
+    "why.tag":"Por que escolher a DriveNow","why.h2":"Excelência em cada\ndetalhe da viagem",
+    "why.stat1":"Clientes satisfeitos","why.stat2":"Nota média","why.stat3":"de experiência no mercado",
+    "why.p1h":"Frota 100% revisada","why.p1p":"Todos os veículos passam por inspeção completa antes de cada locação.",
+    "why.p2h":"Reserva 100% digital","why.p2p":"Do celular ou computador, sem filas, sem papel, sem complicação.",
+    "why.p3h":"Atendimento multilíngue","why.p3p":"Suporte em português, inglês e espanhol.",
+    "why.p4h":"Preço justo e transparente","why.p4p":"Sem taxas escondidas. O que você vê é o que você paga.",
+    "reviews.tag":"Avaliações","reviews.h2":"O que dizem nossos clientes",
+    "cta.h2":"Pronto para a sua próxima aventura?","cta.sub":"Reserve agora e ganhe 10% de desconto na primeira locação.",
+    "cta.btn1":"Ver Frota Disponível","cta.btn2":"💬 Falar no WhatsApp",
+    "footer.about":"Locadora de veículos premium com frota moderna e reservas 100% online.",
+    "footer.fleet":"Frota","footer.info":"Informações","footer.contact":"Contato",
+    "footer.how":"Como Funciona","footer.why":"Por Que Nós","footer.reviews":"Avaliações",
+    "footer.terms":"Termos de Uso","footer.address":"📍 Macapá, AP – Brasil","footer.rights":"Todos os direitos reservados.",
+    "modal.title":"Fazer Reserva","modal.confirm":"Confirmar Reserva",
+    "opt.gps":"GPS – R$ 15/dia","opt.seat":"Cadeirinha infantil – R$ 12/dia","opt.insurance":"Seguro completo – R$ 35/dia",
+    "card.available":"Disponível","card.unavailable":"Indisponível","card.reserve":"Reservar","card.details":"Detalhes",
+    "card.per_day":"/dia","card.trans":"Câmbio","card.doors":"portas","card.people":"pessoas",
+    "price.days":"Diárias","price.subtotal":"Subtotal","price.extras":"Extras","price.total":"Total",
+    "toast.reserve":"🎉 Reserva confirmada! Em breve entraremos em contato.","toast.search":"Buscando veículos...",
+  },
+  en:{
+    "nav.fleet":"Fleet","nav.how":"How It Works","nav.why":"Why Us",
+    "nav.reviews":"Reviews","nav.contact":"Contact","nav.book":"Book Now",
+    "hero.badge":"Available 24/7 • Book in minutes",
+    "hero.h1a":"Drive with","hero.h1b":"total freedom",
+    "hero.sub":"Premium fleet, unbeatable prices and 100% online booking.\nFrom economy to luxury — find the perfect car for you.",
+    "hero.bar_title":"Search available vehicle",
+    "form.category":"Category","form.all_cat":"All","form.pickup_date":"Pick-up",
+    "form.return_date":"Return","form.location":"Location","form.search":"Search",
+    "form.name":"Full name *","form.phone":"WhatsApp / Phone *",
+    "form.email":"E-mail *","form.extras":"Extras","form.notes":"Notes",
+    "cat.economy":"Economy","cat.suv":"SUV","cat.luxury":"Luxury","cat.electric":"Electric",
+    "loc.airport":"Airport","loc.center":"City Center","loc.port":"Port","loc.hotel":"Hotel",
+    "stat.clients":"Clients","stat.fleet":"Vehicles","stat.rating":"Rating","stat.support":"Support",
+    "trust.a":"100% online booking","trust.b":"Secure payment","trust.c":"Inspected fleet",
+    "trust.d":"Delivery to your location","trust.e":"Free cancellation",
+    "fleet.tag":"Our Fleet","fleet.h2":"Choose the ideal vehicle",
+    "fleet.sub":"From compact to premium, we have the right car for every trip and budget.",
+    "filter.all":"All","filter.economy":"Economy","filter.suv":"SUV",
+    "filter.luxury":"Luxury","filter.electric":"Electric",
+    "how.tag":"That simple","how.h2":"How it works","how.sub":"Book in less than 3 minutes, no bureaucracy.",
+    "how.s1h":"Choose the car","how.s1p":"Filter by category, dates and location. Compare models and prices.",
+    "how.s2h":"Make the reservation","how.s2p":"Fill in your details, choose extras and confirm online.",
+    "how.s3h":"Pay securely","how.s3p":"Card, PIX or payment link. Protected data.",
+    "how.s4h":"Pick up and drive!","how.s4p":"Receive e-mail confirmation and pick up at chosen location.",
+    "why.tag":"Why choose DriveNow","why.h2":"Excellence in every\ndetail of the journey",
+    "why.stat1":"Satisfied customers","why.stat2":"Average rating","why.stat3":"years of market experience",
+    "why.p1h":"100% inspected fleet","why.p1p":"All vehicles undergo full inspection before each rental.",
+    "why.p2h":"100% digital booking","why.p2p":"From phone or computer, no queues, no paper, no hassle.",
+    "why.p3h":"Multilingual support","why.p3p":"Support in Portuguese, English and Spanish.",
+    "why.p4h":"Fair and transparent pricing","why.p4p":"No hidden fees. What you see is what you pay.",
+    "reviews.tag":"Reviews","reviews.h2":"What our clients say",
+    "cta.h2":"Ready for your next adventure?","cta.sub":"Book now and get 10% off your first rental.",
+    "cta.btn1":"View Available Fleet","cta.btn2":"💬 Chat on WhatsApp",
+    "footer.about":"Premium car rental with modern fleet and 100% online bookings.",
+    "footer.fleet":"Fleet","footer.info":"Information","footer.contact":"Contact",
+    "footer.how":"How It Works","footer.why":"Why Us","footer.reviews":"Reviews",
+    "footer.terms":"Terms of Service","footer.address":"📍 Macapá, AP – Brazil","footer.rights":"All rights reserved.",
+    "modal.title":"Make Reservation","modal.confirm":"Confirm Reservation",
+    "opt.gps":"GPS – R$ 15/day","opt.seat":"Child seat – R$ 12/day","opt.insurance":"Full insurance – R$ 35/day",
+    "card.available":"Available","card.unavailable":"Unavailable","card.reserve":"Reserve","card.details":"Details",
+    "card.per_day":"/day","card.trans":"Transmission","card.doors":"doors","card.people":"people",
+    "price.days":"Daily rate","price.subtotal":"Subtotal","price.extras":"Extras","price.total":"Total",
+    "toast.reserve":"🎉 Reservation confirmed! We will contact you soon.","toast.search":"Searching vehicles...",
+  },
+  es:{
+    "nav.fleet":"Flota","nav.how":"Cómo Funciona","nav.why":"Por Qué Nosotros",
+    "nav.reviews":"Reseñas","nav.contact":"Contacto","nav.book":"Reservar Ahora",
+    "hero.badge":"Disponible 24/7 • Reserve en minutos",
+    "hero.h1a":"Conduce con","hero.h1b":"total libertad",
+    "hero.sub":"Flota premium, precios imbatibles y reserva 100% online.\nDel económico al lujo — encuentra el auto perfecto para ti.",
+    "hero.bar_title":"Buscar vehículo disponible",
+    "form.category":"Categoría","form.all_cat":"Todas","form.pickup_date":"Recogida",
+    "form.return_date":"Devolución","form.location":"Ubicación","form.search":"Buscar",
+    "form.name":"Nombre completo *","form.phone":"WhatsApp / Teléfono *",
+    "form.email":"Correo *","form.extras":"Extras","form.notes":"Observaciones",
+    "cat.economy":"Económico","cat.suv":"SUV","cat.luxury":"Lujo","cat.electric":"Eléctrico",
+    "loc.airport":"Aeropuerto","loc.center":"Centro","loc.port":"Puerto","loc.hotel":"Hotel",
+    "stat.clients":"Clientes","stat.fleet":"Vehículos","stat.rating":"Calificación","stat.support":"Soporte",
+    "trust.a":"Reserva 100% online","trust.b":"Pago seguro","trust.c":"Flota revisada",
+    "trust.d":"Entrega en tu lugar","trust.e":"Cancelación gratis",
+    "fleet.tag":"Nuestra Flota","fleet.h2":"Elige el vehículo ideal",
+    "fleet.sub":"Del compacto al premium, tenemos el auto correcto para cada viaje.",
+    "filter.all":"Todos","filter.economy":"Económico","filter.suv":"SUV",
+    "filter.luxury":"Lujo","filter.electric":"Eléctrico",
+    "how.tag":"Así de simple","how.h2":"Cómo funciona","how.sub":"Reserva en menos de 3 minutos, sin burocracia.",
+    "how.s1h":"Elige el auto","how.s1p":"Filtra por categoría, fechas y ubicación. Compara modelos y precios.",
+    "how.s2h":"Haz la reserva","how.s2p":"Llena tus datos, elige extras y confirma en línea.",
+    "how.s3h":"Paga con seguridad","how.s3p":"Tarjeta, PIX o enlace de pago. Datos protegidos.",
+    "how.s4h":"¡Retira y maneja!","how.s4p":"Recibe confirmación por correo y retira en el lugar elegido.",
+    "why.tag":"Por qué elegir DriveNow","why.h2":"Excelencia en cada\ndetalle del viaje",
+    "why.stat1":"Clientes satisfechos","why.stat2":"Nota promedio","why.stat3":"años de experiencia",
+    "why.p1h":"Flota 100% revisada","why.p1p":"Todos los vehículos pasan inspección completa antes de cada alquiler.",
+    "why.p2h":"Reserva 100% digital","why.p2p":"Desde tu celular o PC, sin filas, sin papel, sin complicaciones.",
+    "why.p3h":"Atención multilingüe","why.p3p":"Soporte en portugués, inglés y español.",
+    "why.p4h":"Precio justo y transparente","why.p4p":"Sin cargos ocultos. Lo que ves es lo que pagas.",
+    "reviews.tag":"Reseñas","reviews.h2":"Lo que dicen nuestros clientes",
+    "cta.h2":"¿Listo para tu próxima aventura?","cta.sub":"Reserva ahora y obtén 10% de descuento en tu primer alquiler.",
+    "cta.btn1":"Ver Flota Disponible","cta.btn2":"💬 Hablar por WhatsApp",
+    "footer.about":"Alquiler de autos premium con flota moderna y reservas 100% online.",
+    "footer.fleet":"Flota","footer.info":"Información","footer.contact":"Contacto",
+    "footer.how":"Cómo Funciona","footer.why":"Por Qué Nosotros","footer.reviews":"Reseñas",
+    "footer.terms":"Términos de Uso","footer.address":"📍 Macapá, AP – Brasil","footer.rights":"Todos los derechos reservados.",
+    "modal.title":"Hacer Reserva","modal.confirm":"Confirmar Reserva",
+    "opt.gps":"GPS – R$ 15/día","opt.seat":"Silla infantil – R$ 12/día","opt.insurance":"Seguro completo – R$ 35/día",
+    "card.available":"Disponible","card.unavailable":"No disponible","card.reserve":"Reservar","card.details":"Detalles",
+    "card.per_day":"/día","card.trans":"Transmisión","card.doors":"puertas","card.people":"personas",
+    "price.days":"Días","price.subtotal":"Subtotal","price.extras":"Extras","price.total":"Total",
+    "toast.reserve":"🎉 ¡Reserva confirmada! Pronto nos pondremos en contacto.","toast.search":"Buscando vehículos...",
+  }
+};
+
+let currentLang = 'pt';
+
+function t(key){ return (i18n[currentLang]||i18n.pt)[key] || key; }
+
+function setLang(lang){
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-opt').forEach(b=>b.classList.toggle('active', b.textContent===lang.toUpperCase()));
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.dataset.i18n;
+    el.textContent = t(key);
+  });
+  renderFleet();
+  renderReviews();
+}
+
+/* ─── FLEET DATA ─── */
+const fleet = [
+  {id:1,emoji:'🚗',name:'Hyundai HB20',sub:'Hatch 2024',category:'economy',price:149,color:'#E8F4FD',trans:'Auto',doors:4,people:5,available:true},
+  {id:2,emoji:'🚙',name:'Toyota SW4',sub:'SUV 7 lugares',category:'suv',price:390,color:'#FDF5E8',trans:'Auto',doors:4,people:7,available:true},
+  {id:3,emoji:'🏎️',name:'BMW Série 5',sub:'Sedan Executive',category:'luxury',price:680,color:'#E8ECF5',trans:'Auto',doors:4,people:5,available:true},
+  {id:4,emoji:'⚡',name:'BYD Han EV',sub:'Elétrico 100%',category:'electric',price:520,color:'#E8F9F0',trans:'Auto',doors:4,people:5,available:true},
+  {id:5,emoji:'🚘',name:'Chevrolet Onix',sub:'Sedan 2024',category:'economy',price:169,color:'#F5E8FD',trans:'Manual',doors:4,people:5,available:false},
+  {id:6,emoji:'🛻',name:'Toyota Hilux',sub:'Pick-up 4x4',category:'suv',price:450,color:'#FDE8E8',trans:'Auto',doors:4,people:5,available:true},
+  {id:7,emoji:'🚗',name:'Mercedes GLE',sub:'SUV Luxo',category:'luxury',price:890,color:'#E8EBF5',trans:'Auto',doors:4,people:5,available:true},
+  {id:8,emoji:'⚡',name:'Tesla Model 3',sub:'Elétrico Premium',category:'electric',price:620,color:'#E8FDF5',trans:'Auto',doors:4,people:5,available:true},
+];
+
+let currentCar = null;
+let currentFilter = 'all';
+
+function renderFleet(){
+  const grid = document.getElementById('fleetGrid');
+  const filtered = currentFilter==='all' ? fleet : fleet.filter(c=>c.category===currentFilter);
+  grid.innerHTML = filtered.map(car => `
+    <div class="car-card reveal" onclick="openModal(${car.id})">
+      <div class="car-img" style="background:${car.color||'#F5F7FC'};">
+        <span class="car-img-badge">${t('cat.'+car.category)}</span>
+        <span class="car-img-avail ${car.available?'avail-yes':'avail-no'}">${car.available?t('card.available'):t('card.unavailable')}</span>
+        <span style="font-size:5.5rem;filter:drop-shadow(2px 4px 8px rgba(0,0,0,.15));">${car.emoji}</span>
+      </div>
+      <div class="car-body">
+        <div class="car-top">
+          <div>
+            <div class="car-name">${car.name}</div>
+            <div class="car-sub">${car.sub}</div>
+          </div>
+          <div class="car-pricing">
+            <div class="car-price">R$ ${car.price}</div>
+            <div class="car-per">${t('card.per_day')}</div>
+          </div>
+        </div>
+        <div class="car-specs">
+          <span class="spec">⚙️ ${car.trans}</span>
+          <span class="spec">🚪 ${car.doors} ${t('card.doors')}</span>
+          <span class="spec">👥 ${car.people} ${t('card.people')}</span>
+        </div>
+        <div class="car-actions">
+          <button class="btn-reserve" onclick="event.stopPropagation();openModal(${car.id})" ${!car.available?'disabled style="opacity:.5;cursor:not-allowed;"':''}>
+            ${t('card.reserve')}
+          </button>
+          <button class="btn-info" onclick="event.stopPropagation();openModal(${car.id})">ℹ️</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  observeReveal();
+}
+
+function filterFleet(cat, btn){
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderFleet();
+}
+
+/* ─── REVIEWS ─── */
+const reviews = [
+  {name:'Ana Beatriz',loc:'Belém, PA',avatar:'AB',stars:5,pt:'Serviço impecável! Reservei pelo site e o carro estava exatamente como descrito. Voltarei com certeza!',en:'Impeccable service! I booked online and the car was exactly as described. I will definitely return!',es:'¡Servicio impecable! Reservé en línea y el auto era exactamente como se describió. ¡Volveré sin duda!'},
+  {name:'Carlos Mendes',loc:'Manaus, AM',avatar:'CM',stars:5,pt:'Fantástico! Aluguel da Hilux para trilha na Amazônia. Carro perfeito, entrega pontual e preço honesto.',en:'Fantastic! Rented the Hilux for an Amazon trail. Perfect car, on-time delivery and honest price.',es:'¡Fantástico! Alquilé la Hilux para un sendero amazónico. Auto perfecto, entrega puntual y precio justo.'},
+  {name:'Marie Dupont',loc:'Paris, France',avatar:'MD',stars:5,pt:'Como turista, ficou fácil reservar em inglês. Atendimento excelente e carro luxuoso. Recomendo muito!',en:'As a tourist, it was easy to book in English. Excellent service and luxurious car. Highly recommend!',es:'Como turista, fue fácil reservar en inglés. ¡Excelente servicio y auto lujoso. Lo recomiendo mucho!'},
+  {name:'Roberto Silva',loc:'São Paulo, SP',avatar:'RS',stars:5,pt:'Vim a trabalho e precisava de um carro confortável. A DriveNow superou todas as expectativas! 10/10.',en:'I came for work and needed a comfortable car. DriveNow exceeded all expectations! 10/10.',es:'Vine por trabajo y necesitaba un auto cómodo. ¡DriveNow superó todas las expectativas! 10/10.'},
+  {name:'Luisa García',loc:'Buenos Aires, ARG',avatar:'LG',stars:5,pt:'Site em espanhol facilitou muito! Processo de reserva simples e rápido. Carro elétrico incrível.',en:'Website in Spanish made it much easier! Simple and fast booking process. Amazing electric car.',es:'¡El sitio en español facilitó mucho! Proceso de reserva simple y rápido. Auto eléctrico increíble.'},
+  {name:'Pedro Alves',loc:'Macapá, AP',avatar:'PA',stars:5,pt:'Melhor locadora da cidade! Frotas novas, preços justos e atendimento humanizado. Recomendo!',en:'Best rental in the city! New fleet, fair prices and human service. I recommend!',es:'¡La mejor arrendadora de la ciudad! Flota nueva, precios justos y atención humana. ¡Lo recomiendo!'},
+];
+
+function renderReviews(){
+  document.getElementById('reviewsGrid').innerHTML = reviews.map(r=>`
+    <div class="review-card reveal">
+      <div class="stars">${'★'.repeat(r.stars)}</div>
+      <p class="review-text">"${r[currentLang]||r.pt}"</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">${r.avatar}</div>
+        <div>
+          <div class="reviewer-name">${r.name}</div>
+          <div class="reviewer-loc">📍 ${r.loc}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  observeReveal();
+}
+
+/* ─── MODAL ─── */
+function openModal(id){
+  const car = fleet.find(c=>c.id===id);
+  if(!car) return;
+  currentCar = car;
+  document.getElementById('modalTitle').textContent = t('modal.title') + ' – ' + car.name;
+
+  const today = new Date().toISOString().split('T')[0];
+  const tomorrow = new Date(Date.now()+86400000).toISOString().split('T')[0];
+  document.getElementById('fPickup').value = document.getElementById('barPickup').value || today;
+  document.getElementById('fReturn').value  = document.getElementById('barReturn').value  || tomorrow;
+
+  document.getElementById('modalCarPreview').innerHTML = `
+    <span style="font-size:2.8rem">${car.emoji}</span>
+    <div class="modal-car-info">
+      <div class="car-name">${car.name}</div>
+      <div class="car-sub">${car.sub}</div>
+    </div>
+    <div class="modal-car-price">R$ ${car.price}<small>${t('card.per_day')}</small></div>
+  `;
+
+  updatePriceSummary();
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+
+  ['fPickup','fReturn','optGPS','optSeat','optInsurance'].forEach(id=>{
+    document.getElementById(id)?.addEventListener('change', updatePriceSummary);
+  });
+}
+
+function updatePriceSummary(){
+  if(!currentCar) return;
+  const p = document.getElementById('fPickup').value;
+  const r = document.getElementById('fReturn').value;
+  let days = 1;
+  if(p && r){ days = Math.max(1,Math.round((new Date(r)-new Date(p))/86400000)); }
+  const sub = currentCar.price * days;
+  let extras = 0;
+  if(document.getElementById('optGPS')?.checked)       extras += 15*days;
+  if(document.getElementById('optSeat')?.checked)      extras += 12*days;
+  if(document.getElementById('optInsurance')?.checked) extras += 35*days;
+  const total = sub + extras;
+  document.getElementById('priceSummary').innerHTML = `
+    <div class="price-row"><span>${t('price.days')}</span><span>${days}× R$ ${currentCar.price}</span></div>
+    <div class="price-row"><span>${t('price.subtotal')}</span><span>R$ ${sub.toLocaleString('pt-BR')}</span></div>
+    ${extras>0?`<div class="price-row"><span>${t('price.extras')}</span><span>R$ ${extras.toLocaleString('pt-BR')}</span></div>`:''}
+    <div class="price-row"><span>${t('price.total')}</span><span>R$ ${total.toLocaleString('pt-BR')}</span></div>
+  `;
+}
+
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeModalOut(e){ if(e.target===document.getElementById('modalOverlay')) closeModal(); }
+
+function confirmReservation(){
+  const name  = document.getElementById('fName').value.trim();
+  const phone = document.getElementById('fPhone').value.trim();
+  const email = document.getElementById('fEmail').value.trim();
+  const pickup= document.getElementById('fPickup').value;
+  const ret   = document.getElementById('fReturn').value;
+  if(!name||!phone||!email||!pickup||!ret){ showToast('⚠️ Preencha todos os campos obrigatórios.'); return; }
+  closeModal();
+  showToast(t('toast.reserve'));
+}
+
+/* ─── SEARCH ─── */
+function doSearch(){
+  const cat = document.getElementById('barCategory').value;
+  const p   = document.getElementById('barPickup').value;
+  const r   = document.getElementById('barReturn').value;
+  showToast(t('toast.search'));
+  if(cat){
+    currentFilter = cat;
+    document.querySelectorAll('.filter-btn').forEach(b=>{
+      const matches = b.dataset.cat === cat || (cat && b.textContent.toLowerCase().includes(cat));
+      b.classList.toggle('active', b.onclick?.toString().includes(`'${cat}'`));
+    });
+  }
+  document.getElementById('fleet').scrollIntoView({behavior:'smooth'});
+  setTimeout(renderFleet, 400);
+}
+
+/* ─── TOAST ─── */
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 3800);
+}
+
+/* ─── NAVBAR ─── */
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* ─── REVEAL ─── */
+function observeReveal(){
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  },{threshold:.1});
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el=>obs.observe(el));
+}
+
+/* ─── DATE DEFAULTS ─── */
+function setDefaultDates(){
+  const today    = new Date().toISOString().split('T')[0];
+  const tomorrow = new Date(Date.now()+86400000).toISOString().split('T')[0];
+  document.getElementById('barPickup').min = today;
+  document.getElementById('barPickup').value= today;
+  document.getElementById('barReturn').min  = tomorrow;
+  document.getElementById('barReturn').value= tomorrow;
+}
+
+/* ─── INIT ─── */
+setDefaultDates();
+renderFleet();
+renderReviews();
+observeReveal();

@@ -1,0 +1,1060 @@
+!! @wrapper
+
+>>
+
+_meta charset="UTF-8"
+_meta name="viewport" content="width=device-width, initial-scale=1.0"
+_title
+  MágicaFest – Festas Infantis
+_link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"
+
+
+##
+
+:root {
+  --amarelo: #FFD23F;
+  --rosa: #FF6B9D;
+  --roxo: #7B5EA7;
+  --azul: #4ECDC4;
+  --laranja: #FF8C42;
+  --branco: #FFFDF7;
+  --escuro: #2D2040;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--branco);
+  color: var(--escuro);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 6%;
+  background: rgba(255, 253, 247, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--amarelo);
+}
+
+.logo {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--roxo);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo span {
+  color: var(--rosa);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+nav ul a {
+  font-weight: 700;
+  color: var(--escuro);
+  text-decoration: none;
+  font-size: .95rem;
+  transition: color .2s;
+}
+
+nav ul a:hover {
+  color: var(--rosa);
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #7B5EA7 0%, #FF6B9D 60%, #FFD23F 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 6% 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml, %3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.07'%3E%3Ccircle cx='30' cy='30' r='10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.confetti {
+  position: absolute;
+  font-size: 2rem;
+  animation: float 6s ease-in-out infinite;
+  user-select: none;
+}
+
+.confetti:nth-child(1) {
+  top:10%;
+  left:5%;
+  animation-delay:0s;
+}
+
+.confetti:nth-child(2) {
+  top:20%;
+  right:8%;
+  animation-delay:1.2s;
+}
+
+.confetti:nth-child(3) {
+  top:70%;
+  left:9%;
+  animation-delay:2.4s;
+}
+
+.confetti:nth-child(4) {
+  top:80%;
+  right:5%;
+  animation-delay:.6s;
+}
+
+.confetti:nth-child(5) {
+  top:40%;
+  left:2%;
+  animation-delay:1.8s;
+}
+
+.confetti:nth-child(6) {
+  top:55%;
+  right:3%;
+  animation-delay:3s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: var(--amarelo);
+  color: var(--escuro);
+  font-weight: 800;
+  font-size: .85rem;
+  letter-spacing: 1px;
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-family: 'Baloo 2', cursive;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  text-shadow: 3px 4px 0 rgba(45, 32, 64, .25);
+}
+
+.hero h1 em {
+  color: var(--amarelo);
+  font-style: normal;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, .9);
+  margin-bottom: 36px;
+  font-weight: 600;
+}
+
+.btn-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+}
+
+.btn-primary {
+  background: var(--amarelo);
+  color: var(--escuro);
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #fff;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, .7);
+}
+
+/* ── SECTIONS SHARED ── */
+section {
+  padding: 90px 6%;
+}
+
+.section-tag {
+  display: inline-block;
+  font-weight: 800;
+  font-size: .8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-family: 'Baloo 2', cursive;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+/* ── SERVIÇOS ── */
+#servicos {
+  background: var(--branco);
+}
+
+#servicos .section-tag {
+  background: #FFD23F22;
+  color: var(--roxo);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 50px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(123, 94, 167, .1);
+  border: 2px solid transparent;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(123, 94, 167, .18);
+}
+
+.card.c1:hover {
+  border-color: var(--rosa);
+}
+
+.card.c2:hover {
+  border-color: var(--azul);
+}
+
+.card.c3:hover {
+  border-color: var(--amarelo);
+}
+
+.card.c4:hover {
+  border-color: var(--laranja);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: .95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ── GALERIA ── */
+#galeria {
+  background: linear-gradient(180deg, #F9F0FF 0%, var(--branco) 100%);
+}
+
+#galeria .section-tag {
+  background: #FF6B9D22;
+  color: var(--rosa);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 16px;
+  margin-top: 50px;
+}
+
+.gal-item {
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  cursor: pointer;
+  transition: transform .3s;
+  position: relative;
+}
+
+.gal-item:hover {
+  transform: scale(1.03);
+}
+
+.gal-item:nth-child(1) {
+  background: linear-gradient(135deg, #FFD23F, #FF8C42);
+}
+
+.gal-item:nth-child(2) {
+  background: linear-gradient(135deg, #FF6B9D, #7B5EA7);
+  grid-row: span 2;
+  aspect-ratio: auto;
+  min-height: 300px;
+}
+
+.gal-item:nth-child(3) {
+  background: linear-gradient(135deg, #4ECDC4, #7B5EA7);
+}
+
+.gal-item:nth-child(4) {
+  background: linear-gradient(135deg, #FF6B9D, #FFD23F);
+}
+
+.gal-item:nth-child(5) {
+  background: linear-gradient(135deg, #7B5EA7, #4ECDC4);
+}
+
+.gal-item .emoji-overlay {
+  font-size: 5rem;
+  filter: drop-shadow(2px 3px 6px rgba(0, 0, 0, .2));
+}
+
+/* ── DEPOIMENTOS ── */
+#depoimentos {
+  background: var(--escuro);
+}
+
+#depoimentos h2 {
+  color: #fff;
+}
+
+#depoimentos .section-tag {
+  background: rgba(255, 210, 63, .2);
+  color: var(--amarelo);
+}
+
+.testemunhos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 50px;
+}
+
+.testemunho {
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 20px;
+  padding: 30px;
+  transition: background .3s;
+}
+
+.testemunho:hover {
+  background: rgba(255, 255, 255, .1);
+}
+
+.stars {
+  color: var(--amarelo);
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+}
+
+.testemunho p {
+  color: rgba(255, 255, 255, .82);
+  line-height: 1.7;
+  font-size: .97rem;
+  margin-bottom: 20px;
+}
+
+.autor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.autor-info strong {
+  display: block;
+  color: #fff;
+  font-weight: 700;
+  font-size: .9rem;
+}
+
+.autor-info span {
+  color: rgba(255, 255, 255, .5);
+  font-size: .82rem;
+}
+
+/* ── ENDEREÇO ── */
+#endereco {
+  background: var(--branco);
+}
+
+#endereco .section-tag {
+  background: #4ECDC422;
+  color: #2a9d8f;
+}
+
+.endereco-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 18px;
+  background: #F9F0FF;
+  margin-bottom: 16px;
+}
+
+.info-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.info-icon.rosa {
+  background: #FFE0EE;
+}
+
+.info-icon.amarelo {
+  background: #FFF3C4;
+}
+
+.info-icon.azul {
+  background: #D0F5F3;
+}
+
+.info-item strong {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.info-item p {
+  color: #666;
+  font-size: .93rem;
+  line-height: 1.5;
+}
+
+.map-placeholder {
+  border-radius: 24px;
+  overflow: hidden;
+  height: 340px;
+  background: linear-gradient(135deg, #e0d7f5, #ffd6e7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  gap: 16px;
+  border: 2px solid rgba(123, 94, 167, .15);
+  box-shadow: 0 8px 30px rgba(123, 94, 167, .12);
+}
+
+.map-placeholder span {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--roxo);
+}
+
+/* ── CONTATO ── */
+#contato {
+  background: linear-gradient(135deg, #7B5EA7, #FF6B9D);
+  position: relative;
+  overflow: hidden;
+}
+
+#contato::before {
+  content: '🎈🎉🎊🎁🎀';
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  font-size: 3rem;
+  text-align: center;
+  opacity: .1;
+  letter-spacing: 20px;
+  filter: blur(2px);
+}
+
+#contato h2 {
+  color: #fff;
+}
+
+#contato .section-tag {
+  background: rgba(255, 255, 255, .2);
+  color: #fff;
+}
+
+#contato > p {
+  color: rgba(255, 255, 255, .85);
+  margin: 10px 0 50px;
+  font-size: 1.05rem;
+  max-width: 540px;
+}
+
+.form-card {
+  background: #fff;
+  border-radius: 28px;
+  padding: 44px;
+  max-width: 620px;
+  box-shadow: 0 20px 60px rgba(45, 32, 64, .3);
+  position: relative;
+  z-index: 1;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  font-size: .88rem;
+  margin-bottom: 6px;
+  color: var(--escuro);
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e8e0f0;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: .97rem;
+  color: var(--escuro);
+  transition: border-color .2s, box-shadow .2s;
+  background: #faf8ff;
+  outline: none;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--rosa);
+  box-shadow: 0 0 0 4px rgba(255, 107, 157, .12);
+  background: #fff;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(90deg, var(--rosa), var(--roxo));
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity .2s, transform .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-submit:hover {
+  opacity: .9;
+  transform: translateY(-2px);
+}
+
+.success-msg {
+  display: none;
+  text-align: center;
+  padding: 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--roxo);
+}
+
+/* ── FLOAT WHATSAPP ── */
+.wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 200;
+  background: #25D366;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, .45);
+  transition: transform .2s, box-shadow .2s;
+  animation: pulse 2s infinite;
+}
+
+.wa-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 32px rgba(37, 211, 102, .55);
+  animation: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 6px 24px rgba(37, 211, 102, .45);
+  }
+
+  50% {
+    box-shadow: 0 6px 36px rgba(37, 211, 102, .7);
+  }
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--escuro);
+  color: rgba(255, 255, 255, .6);
+  text-align: center;
+  padding: 30px;
+  font-size: .9rem;
+}
+
+footer strong {
+  color: var(--amarelo);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px) {
+  nav ul {
+    display: none;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gal-item:nth-child(2) {
+    grid-row: span 1;
+  }
+
+  .endereco-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card {
+    padding: 28px 22px;
+  }
+}
+
+++
+
+_nav
+  _a .logo href="#"
+    🎪 Mágica
+    _span
+      Fest
+  _ul
+    _li
+      _a href="#servicos"
+        Serviços
+    _li
+      _a href="#galeria"
+        Galeria
+    _li
+      _a href="#depoimentos"
+        Depoimentos
+    _li
+      _a href="#endereco"
+        Onde Estamos
+    _li
+      _a href="#contato"
+        Contato
+_section .hero
+  _span .confetti
+    🎈
+  _span .confetti
+    🎉
+  _span .confetti
+    🎊
+  _span .confetti
+    🎁
+  _span .confetti
+    ⭐
+  _span .confetti
+    🦄
+  _ .hero-content
+    _ .hero-badge
+      ✨ A festa dos sonhos do seu filho
+    _h1
+      Transformamos
+      _em
+        momentos
+      em memórias inesquecíveis
+    _p
+      Festas infantis com decoração encantada, animação incrível e muito amor em cada detalhe.
+    _ .btn-group
+      _a .btn.btn-primary href="#contato"
+        🎂 Orçamento grátis
+      _a .btn.btn-whatsapp href="https://wa.me/5596999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20as%20festas%20infantis." target="_blank"
+        💬 Chamar no WhatsApp
+_section #servicos
+  _ style="max-width:900px;margin:auto;text-align:center;"
+    _ .section-tag
+      🌟 O que fazemos
+    _h2
+      Tudo que a festa precisa
+      _br
+      em um só lugar
+    _p style="color:#666;margin-top:14px;font-size:1.05rem;"
+      Do balão ao bolo, cuidamos de cada detalhe para você curtir cada minuto.
+  _ .cards-grid style="max-width:1100px;margin:0 auto;"
+    _ .card.c1
+      _ .card-icon
+        🎨
+      _h3
+        Decoração Temática
+      _p
+        Unicórnio, super-heróis, fadas, dinossauros — qualquer tema virado em realidade com cores vibrantes.
+    _ .card.c2
+      _ .card-icon
+        🎭
+      _h3
+        Animação & Recreação
+      _p
+        Animadores profissionais que mantêm as crianças entretidas com brincadeiras, dança e muita energia.
+    _ .card.c3
+      _ .card-icon
+        🎂
+      _h3
+        Buffet Completo
+      _p
+        Cardápio completo para crianças e adultos — salgadinhos, docinhos, bolo personalizado e bebidas.
+    _ .card.c4
+      _ .card-icon
+        📸
+      _h3
+        Foto & Vídeo
+      _p
+        Cobertura fotográfica profissional para guardar cada sorriso e cada momento especial da festa.
+_section #galeria
+  _ style="max-width:900px;margin:0 auto 0;text-align:center;"
+    _ .section-tag
+      📸 Galeria
+    _h2
+      Festas que já encantamos
+  _ .gallery-grid style="max-width:900px;margin:0 auto;"
+    _ .gal-item
+      _ .emoji-overlay
+        🦄
+    _ .gal-item
+      _ .emoji-overlay
+        🎉
+    _ .gal-item
+      _ .emoji-overlay
+        🦸
+    _ .gal-item
+      _ .emoji-overlay
+        🧁
+    _ .gal-item
+      _ .emoji-overlay
+        🎈
+_section #depoimentos
+  _ style="text-align:center;"
+    _ .section-tag
+      💬 Depoimentos
+    _h2
+      O que os pais dizem
+  _ .testemunhos-grid style="max-width:1000px;margin:0 auto;"
+    _ .testemunho
+      _ .stars
+        ★★★★★
+      _p
+        "A festa da minha filha foi um sonho! A decoração ficou perfeita e os animadores foram incríveis. Ela não parou de falar por semanas!"
+      _ .autor
+        _ .avatar style="background:#FFD23F;"
+          👩
+        _ .autor-info
+          _strong
+            Ana Beatriz Silva
+          _span
+            Festa Unicórnio • Março 2025
+    _ .testemunho
+      _ .stars
+        ★★★★★
+      _p
+        "Serviço de altíssima qualidade! Cuidaram de tudo e eu consegui curtir a festa sem me preocupar com nada. Super recomendo!"
+      _ .autor
+        _ .avatar style="background:#4ECDC4;"
+          👨
+        _ .autor-info
+          _strong
+            Carlos Eduardo Rocha
+          _span
+            Festa Super-Heróis • Fevereiro 2025
+    _ .testemunho
+      _ .stars
+        ★★★★★
+      _p
+        "Meu filho adorou! As crianças brincaram o tempo todo. O buffet estava delicioso e o bolo personalizado ficou lindo demais!"
+      _ .autor
+        _ .avatar style="background:#FF6B9D;"
+          👩
+        _ .autor-info
+          _strong
+            Mariana Costa
+          _span
+            Festa Dinossauros • Janeiro 2025
+_section #endereco
+  _ style="text-align:center;"
+    _ .section-tag
+      📍 Onde Estamos
+    _h2
+      Venha nos visitar!
+    _p style="color:#666;margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto;"
+      Nosso espaço está pronto para receber você e ajudar a planejar a festa perfeita.
+  _ .endereco-wrap style="max-width:1000px;margin:0 auto;"
+    _
+      _ .info-item
+        _ .info-icon.rosa
+          📍
+        _
+          _strong
+            Endereço
+          _p
+            Rua das Flores, 456 – Bairro Jardim Feliz
+            _br
+            Macapá – AP, CEP 68900-000
+      _ .info-item
+        _ .info-icon.amarelo
+          🕐
+        _
+          _strong
+            Horário de Atendimento
+          _p
+            Segunda a Sexta: 9h às 18h
+            _br
+            Sábado: 9h às 14h
+      _ .info-item
+        _ .info-icon.azul
+          📞
+        _
+          _strong
+            Telefone & WhatsApp
+          _p
+            (96) 99999-9999
+            _br
+            Respondemos rápido!
+      _a .btn.btn-whatsapp href="https://wa.me/5596999999999" target="_blank" style="display:inline-flex;margin-top:8px;"
+        💬 Fale conosco agora
+    _ .map-placeholder
+      🗺️
+      _span
+        Rua das Flores, 456 – Macapá, AP
+_section #contato
+  _ style="max-width:620px;"
+    _ .section-tag
+      ✉️ Contato
+    _h2
+      Vamos planejar a festa juntos?
+    _p
+      Preencha o formulário e entraremos em contato em até 24 horas com o seu orçamento personalizado.
+    _ .form-card
+      _form #formContato
+        _ .form-row
+          _ .form-group
+            _label
+              Seu nome *
+            _input type="text" placeholder="Maria da Silva" required
+          _ .form-group
+            _label
+              WhatsApp *
+            _input type="tel" placeholder="(96) 99999-9999" required
+        _ .form-group
+          _label
+            E-mail
+          _input type="email" placeholder="seu@email.com"
+        _ .form-row
+          _ .form-group
+            _label
+              Tema da festa
+            _select
+              _option value=""
+                Escolha um tema
+              _option
+                🦄 Unicórnio
+              _option
+                🦸 Super-Heróis
+              _option
+                🧜 Sereia
+              _option
+                🦕 Dinossauros
+              _option
+                👸 Princesas
+              _option
+                🚀 Espaço
+              _option
+                🎮 Games
+              _option
+                Outro tema
+          _ .form-group
+            _label
+              Data prevista
+            _input type="date"
+        _ .form-group
+          _label
+            Mensagem
+          _textarea placeholder="Conte mais sobre a festa: número de crianças, local, orçamento..."
+        _button .btn-submit type="submit"
+          🎉 Solicitar orçamento grátis
+      _ #successMsg .success-msg
+        🎊 Mensagem enviada! Em breve entraremos em contato. Obrigado!
+_footer
+  _p
+    🎪
+    _strong
+      MágicaFest – Festas Infantis
+    · Rua das Flores, 456 – Macapá, AP · (96) 99999-9999
+  _p style="margin-top:8px;"
+    © 2025 MágicaFest. Todos os direitos reservados. Feito com 💜 para os seus pequenos.
+_a .wa-float href="https://wa.me/5596999999999?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20as%20festas%20infantis." target="_blank" title="Falar no WhatsApp"
+  💬
+
+
+@>
+
+document.getElementById('formContato').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  });
+
+  // Smooth reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.card, .testemunho, .info-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
