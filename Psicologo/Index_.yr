@@ -1,0 +1,961 @@
+!! @wrapper
+!! server
+
+++
+
+_div .pagina
+  _header .cabecalho
+    _div .container.cabecalho__interno
+      _a .logo href="#topo"
+        _span .logo__marca
+          MS
+        _span .logo__nome
+          Mente Serena
+      _nav .navegacao
+        _a href="#sobre"
+          Sobre
+        _a href="#servicos"
+          Serviços
+        _a href="#equipe"
+          Equipe
+        _a href="#depoimentos"
+          Depoimentos
+        _a href="#contato"
+          Contato
+      _a .botao.botao--primario.cabecalho__cta href="#contato"
+        Agendar consulta
+
+  _section .hero #topo
+    _div .container.hero__grade
+      _div .hero__conteudo
+        _span .selo
+          Psicologia clínica · atendimento humanizado
+        _h1 .hero__titulo
+          Um espaço seguro para cuidar da sua mente
+        _p .hero__texto
+          Acolhimento profissional para ansiedade, autoestima, relacionamentos e autoconhecimento — presencial ou online, no seu tempo.
+        _div .hero__acoes
+          _a .botao.botao--primario href="#contato"
+            Agendar primeira conversa
+          _a .botao.botao--fantasma href="#servicos"
+            Conhecer serviços
+        _ul .indicadores
+          _li
+            _strong
+              12+
+            _span
+              anos de experiência
+          _li
+            _strong
+              2.400+
+            _span
+              atendimentos realizados
+          _li
+            _strong
+              98%
+            _span
+              de satisfação
+      _div .hero__arte
+        _div .hero__blob
+        _div .hero__cartao
+          _p .hero__citacao
+            “A terapia me ajudou a me entender e a viver com mais leveza.”
+          _div .hero__pessoa
+            _span .hero__avatar
+              M
+            _div
+              _strong
+                Mariana Alves
+              _span
+                paciente há 2 anos
+
+  _section .secao #sobre
+    _div .container.sobre__grade
+      _div .sobre__midia
+        _div .sobre__foto
+          _span .sobre__foto-emoji
+            🌿
+        _div .sobre__selo
+          _strong
+            CRP
+          _span
+            06/12345
+      _div .sobre__conteudo
+        _span .selo
+          Sobre o espaço
+        _h2 .titulo
+          Escuta atenta, cuidado profissional
+        _p
+          A Mente Serena foi pensada para ser um lugar tranquilo, onde você pode falar sem medo de julgamentos. Nossa prioridade é o seu bem-estar.
+        _p
+          Trabalhamos com uma abordagem integrativa, unindo técnicas baseadas em evidências a um olhar humano e individualizado para cada história.
+        _ul .beneficios
+          _li
+            Terapia individual para adultos
+          _li
+            Terapia de casal e família
+          _li
+            Atendimento infantil e adolescente
+          _li
+            Sessões por vídeo, onde você estiver
+
+  _section .secao.secao--alt #servicos
+    _div .container
+      _div .secao__cabecalho
+        _span .selo
+          Serviços
+        _h2 .titulo
+          Como podemos te ajudar
+        _p .subtitulo
+          Diferentes modalidades para diferentes momentos de vida.
+      _div .cartoes
+        _article .cartao
+          _div .cartao__icone
+            🧠
+          _h3
+            Terapia individual
+          _p
+            Um encontro entre você e você mesmo, para compreender emoções, aliviar a ansiedade e construir novas formas de lidar com a vida.
+          _a .cartao__link href="#contato"
+            Começar agora
+        _article .cartao
+          _div .cartao__icone
+            💬
+          _h3
+            Terapia de casal
+          _p
+            Um espaço neutro para melhorar a comunicação, resolver conflitos e fortalecer os vínculos com quem você ama.
+          _a .cartao__link href="#contato"
+            Começar agora
+        _article .cartao
+          _div .cartao__icone
+            🌱
+          _h3
+            Infantil e adolescente
+          _p
+            Acompanhamento lúdico e sensível para ajudar crianças e jovens a lidarem com emoções, escola e relações.
+          _a .cartao__link href="#contato"
+            Começar agora
+
+  _section .secao #equipe
+    _div .container
+      _div .secao__cabecalho
+        _span .selo
+          Equipe
+        _h2 .titulo
+          Quem vai te acompanhar
+      _div .equipe
+        _article .membro
+          _div .membro__foto
+            H
+          _h3
+            Dra. Helena Costa
+          _span .membro__cargo
+            CRP 06/12345 · Ansiedade
+          _p
+            Especialista em terapia cognitivo-comportamental, com foco em ansiedade e autoestima.
+        _article .membro
+          _div .membro__foto
+            R
+          _h3
+            Dr. Rafael Menezes
+          _span .membro__cargo
+            CRP 06/54321 · Casais
+          _p
+            Trabalha com relacionamentos, comunicação e terapia de casal há mais de 10 anos.
+        _article .membro
+          _div .membro__foto
+            C
+          _h3
+            Dra. Camila Prado
+          _span .membro__cargo
+            CRP 06/98765 · Infantil
+          _p
+            Atende crianças e adolescentes com uma abordagem lúdica e acolhedora.
+
+  _section .secao.secao--alt #depoimentos
+    _div .container
+      _div .secao__cabecalho
+        _span .selo
+          Depoimentos
+        _h2 .titulo
+          Histórias de quem passou por aqui
+      _div .depoimentos
+        _blockquote .depoimento
+          _p
+            “Encontrei um lugar onde me sinto ouvida de verdade. Hoje lido com a ansiedade de um jeito muito mais leve.”
+          _footer
+            _strong
+              Mariana A.
+            _span
+              terapia individual
+        _blockquote .depoimento
+          _p
+            “A terapia de casal nos ajudou a conversar sem brigar. Aprendemos a nos ouvir de novo.”
+          _footer
+            _strong
+              Lucas e Bianca
+            _span
+              terapia de casal
+        _blockquote .depoimento
+          _p
+            “Meu filho passou a falar mais sobre o que sente. O cuidado da equipe fez toda a diferença.”
+          _footer
+            _strong
+              Patrícia R.
+            _span
+              atendimento infantil
+
+  _section .secao.contato #contato
+    _div .container.contato__grade
+      _div .contato__info
+        _span .selo
+          Contato
+        _h2 .titulo
+          Vamos conversar?
+        _p
+          Dê o primeiro passo. Agende uma conversa inicial e descubra como a terapia pode te ajudar.
+        _ul .contato__lista
+          _li
+            _span .contato__rotulo
+              Endereço
+            _span
+              Rua das Acácias, 120 — São Paulo, SP
+          _li
+            _span.contato__rotulo
+              Telefone
+            _span
+              (11) 4002-8922
+          _li
+            _span .contato__rotulo
+              E-mail
+            _span
+              contato@menteserena.com.br
+          _li
+            _span .contato__rotulo
+              Horários
+            _span
+              Seg. a sex., das 8h às 20h
+      _form .formulario action="#" method="post"
+        _label
+          _span
+            Nome
+          _input type="text" name="nome" placeholder="Seu nome completo" required
+        _label
+          _span
+            E-mail
+          _input type="email" name="email" placeholder="voce@email.com" required
+        _label
+          _span
+            Mensagem
+          _textarea name="mensagem" rows="4" placeholder="Como podemos te ajudar?"
+        _button.botao.botao--primario type="submit"
+          Enviar mensagem
+
+  _footer .rodape
+    _div .container.rodape__interno
+      _div.rodape__marca
+        _span.logo__marca
+          MS
+        _span
+          Mente Serena · Psicologia
+      _p .rodape__nota
+        © 2024 Mente Serena. Todos os direitos reservados.
+      _div .rodape__redes
+        _a href="#"
+          Instagram
+        _a href="#"
+          LinkedIn
+        _a href="#"
+          WhatsApp
+
+@>
+
+_@wrapper(Psicologo, Index_) {
+  const pagina = document.querySelector('.pagina');
+  if (!pagina) return;
+
+  const cabecalho = pagina.querySelector('.cabecalho');
+  const aoRolar = () => {
+    if (cabecalho) cabecalho.classList.toggle('cabecalho--rolado', window.scrollY > 20);
+  };
+  window.addEventListener('scroll', aoRolar, { passive: true });
+  aoRolar();
+
+  const alvos = pagina.querySelectorAll('.cartao, .membro, .depoimento, .secao__cabecalho, .sobre__grade, .contato__grade');
+  alvos.forEach((el) => el.classList.add('revelar'));
+
+  if ('IntersectionObserver' in window) {
+    const observador = new IntersectionObserver((entradas) => {
+      entradas.forEach((entrada) => {
+        if (entrada.isIntersecting) {
+          entrada.target.classList.add('visivel');
+          observador.unobserve(entrada.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    alvos.forEach((el) => observador.observe(el));
+  } else {
+    alvos.forEach((el) => el.classList.add('visivel'));
+  }
+
+  pagina.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (evento) => {
+      const alvo = pagina.querySelector(link.getAttribute('href'));
+      if (alvo) {
+        evento.preventDefault();
+        alvo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+@}
+
+##
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
+.pagina {
+  --verde: #2c7a70;
+  --verde-escuro: #1c4f49;
+  --verde-claro: #7bb8ac;
+  --menta: #dcece8;
+  --areia: #f3e9da;
+  --terra: #e08a61;
+  --terra-escuro: #c9724a;
+  --texto: #243330;
+  --suave: #6a7b76;
+  --fundo: #faf6ef;
+  --branco: #ffffff;
+  --raio: 18px;
+  --sombra: 0 20px 50px rgba(44, 122, 112, .14);
+  --fonte-titulo: "Fraunces", Georgia, serif;
+  --fonte-texto: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+  font-family: var(--fonte-texto);
+  color: var(--texto);
+  background: var(--fundo);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.pagina *,
+.pagina *::before,
+.pagina *::after { box-sizing: border-box; }
+
+.pagina h1, .pagina h2, .pagina h3, .pagina p, .pagina ul { margin: 0; }
+
+.pagina .container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.pagina section[id] { scroll-margin-top: 90px; }
+
+/* ---------- Cabeçalho ---------- */
+.pagina .cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(251, 248, 244, .85);
+  backdrop-filter: blur(10px);
+  transition: box-shadow .3s ease, background .3s ease;
+}
+
+.pagina .cabecalho--rolado {
+  background: rgba(255, 255, 255, .95);
+  box-shadow: 0 10px 30px rgba(47, 111, 104, .08);
+}
+
+.pagina .cabecalho__interno {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 0;
+}
+
+.pagina .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--texto);
+  font-weight: 700;
+}
+
+.pagina .logo__marca {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--verde), var(--verde-claro));
+  color: #fff;
+  font-family: var(--fonte-titulo);
+  font-size: 15px;
+  letter-spacing: .5px;
+}
+
+.pagina .logo__nome { font-size: 18px; }
+
+.pagina .navegacao { display: flex; gap: 28px; }
+
+.pagina .navegacao a {
+  position: relative;
+  color: var(--suave);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 6px 0;
+  transition: color .2s ease;
+}
+
+.pagina .navegacao a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--terra);
+  transition: width .25s ease;
+}
+
+.pagina .navegacao a:hover { color: var(--verde); }
+.pagina .navegacao a:hover::after { width: 100%; }
+
+/* ---------- Botões ---------- */
+.pagina .botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.pagina .botao--primario {
+  background: linear-gradient(135deg, var(--verde), var(--verde-claro));
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(44, 122, 112, .3);
+}
+
+.pagina .botao--primario:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(44, 122, 112, .38);
+}
+
+.pagina .botao--fantasma {
+  background: transparent;
+  color: var(--verde);
+  border-color: rgba(47, 111, 104, .3);
+}
+
+.pagina .botao--fantasma:hover {
+  background: rgba(47, 111, 104, .07);
+  transform: translateY(-2px);
+}
+
+/* ---------- Selos e títulos ---------- */
+.pagina .selo {
+  display: inline-block;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: rgba(47, 111, 104, .1);
+  color: var(--verde);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  margin-bottom: 20px;
+}
+
+.pagina .titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  line-height: 1.15;
+  letter-spacing: -.3px;
+  color: #23302d;
+  margin-bottom: 14px;
+}
+
+.pagina .subtitulo { color: var(--suave); }
+
+/* ---------- Hero ---------- */
+.pagina .hero {
+  position: relative;
+  padding: 70px 0 90px;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(123, 184, 172, .22), transparent 45%),
+    radial-gradient(circle at 85% 0%, rgba(224, 138, 97, .18), transparent 45%);
+}
+
+.pagina .hero__grade {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 56px;
+}
+
+.pagina .hero__titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -.5px;
+  color: #23302d;
+  margin-bottom: 20px;
+}
+
+.pagina .hero__texto {
+  font-size: 1.05rem;
+  color: var(--suave);
+  max-width: 520px;
+  margin-bottom: 30px;
+}
+
+.pagina .hero__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.pagina .indicadores {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+}
+
+.pagina .indicadores li { display: flex; flex-direction: column; }
+
+.pagina .indicadores strong {
+  font-family: var(--fonte-titulo);
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--verde);
+}
+
+.pagina .indicadores span {
+  font-size: .85rem;
+  color: var(--suave);
+  margin-top: 6px;
+}
+
+.pagina .hero__arte {
+  position: relative;
+  min-height: 380px;
+  display: grid;
+  place-items: center;
+}
+
+.pagina .hero__blob {
+  position: absolute;
+  inset: 8% 12%;
+  border-radius: 42% 58% 55% 45% / 45% 45% 55% 55%;
+  background: linear-gradient(135deg, var(--verde-claro), var(--verde));
+  opacity: .9;
+  animation: ms-flutuar 7s ease-in-out infinite;
+}
+
+.pagina .hero__cartao {
+  position: relative;
+  width: 78%;
+  padding: 26px;
+  border-radius: var(--raio);
+  background: #fff;
+  box-shadow: var(--sombra);
+}
+
+.pagina .hero__citacao {
+  font-family: var(--fonte-titulo);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #2c3836;
+  margin-bottom: 18px;
+}
+
+.pagina .hero__pessoa { display: flex; align-items: center; gap: 12px; }
+
+.pagina .hero__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--areia);
+  color: var(--terra);
+  font-weight: 700;
+}
+
+.pagina .hero__pessoa div { display: flex; flex-direction: column; }
+.pagina .hero__pessoa strong { font-size: .95rem; }
+.pagina .hero__pessoa span { font-size: .8rem; color: var(--suave); }
+
+@keyframes ms-flutuar {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
+}
+
+/* ---------- Seções ---------- */
+.pagina .secao { padding: 84px 0; }
+
+.pagina .secao--alt {
+  background: linear-gradient(180deg, rgba(243, 233, 218, .65), rgba(220, 236, 232, .35));
+}
+
+.pagina .secao__cabecalho {
+  max-width: 640px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+/* ---------- Sobre ---------- */
+.pagina .sobre__grade {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  align-items: center;
+  gap: 56px;
+}
+
+.pagina .sobre__midia { position: relative; }
+
+.pagina .sobre__foto {
+  aspect-ratio: 4 / 5;
+  display: grid;
+  place-items: center;
+  border-radius: 28px;
+  background: linear-gradient(150deg, #e2efeb, #c9e2db 60%, #b1d6cc);
+  box-shadow: var(--sombra);
+}
+
+.pagina .sobre__foto-emoji {
+  font-size: 5rem;
+  filter: drop-shadow(0 8px 16px rgba(47, 111, 104, .2));
+}
+
+.pagina .sobre__selo {
+  position: absolute;
+  right: -18px;
+  bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 22px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--sombra);
+}
+
+.pagina .sobre__selo strong {
+  font-family: var(--fonte-titulo);
+  font-size: 1.3rem;
+  color: var(--verde);
+}
+
+.pagina .sobre__selo span { font-size: .78rem; color: var(--suave); }
+
+.pagina .sobre__conteudo p { color: var(--suave); margin-bottom: 14px; }
+
+.pagina .beneficios {
+  list-style: none;
+  padding: 0;
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 24px;
+}
+
+.pagina .beneficios li {
+  position: relative;
+  padding-left: 30px;
+  font-weight: 500;
+  color: #33403c;
+}
+
+.pagina .beneficios li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(47, 111, 104, .12);
+  color: var(--verde);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ---------- Cartões de serviço ---------- */
+.pagina .cartoes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.pagina .cartao {
+  padding: 32px 28px;
+  border-radius: var(--raio);
+  border: 1px solid rgba(47, 111, 104, .08);
+  background: #fff;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.pagina .cartao:hover { transform: translateY(-6px); box-shadow: var(--sombra); }
+
+.pagina .cartao__icone {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  font-size: 26px;
+  background: linear-gradient(135deg, #e4efec, #d0e7e1);
+  margin-bottom: 20px;
+}
+
+.pagina .cartao h3 { font-size: 1.2rem; color: #23302d; margin-bottom: 10px; }
+.pagina .cartao p { color: var(--suave); font-size: .95rem; margin-bottom: 18px; }
+
+.pagina .cartao__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--verde);
+  font-weight: 600;
+  font-size: .95rem;
+  text-decoration: none;
+}
+
+.pagina .cartao__link::after { content: "→"; transition: transform .2s ease; }
+.pagina .cartao__link:hover::after { transform: translateX(4px); }
+
+/* ---------- Equipe ---------- */
+.pagina .equipe {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.pagina .membro {
+  text-align: center;
+  padding: 32px 24px;
+  border-radius: var(--raio);
+  border: 1px solid rgba(47, 111, 104, .08);
+  background: #fff;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.pagina .membro:hover { transform: translateY(-6px); box-shadow: var(--sombra); }
+
+.pagina .membro__foto {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--verde), var(--verde-claro));
+  box-shadow: 0 10px 24px rgba(47, 111, 104, .25);
+}
+
+.pagina .membro h3 { font-size: 1.15rem; color: #23302d; margin-bottom: 4px; }
+
+.pagina .membro__cargo {
+  display: block;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--terra);
+  margin-bottom: 12px;
+}
+
+.pagina .membro p { color: var(--suave); font-size: .92rem; }
+
+/* ---------- Depoimentos ---------- */
+.pagina .depoimentos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.pagina .depoimento {
+  padding: 30px 26px;
+  border-radius: var(--raio);
+  border-left: 4px solid var(--verde-claro);
+  background: #fff;
+  box-shadow: 0 14px 34px rgba(47, 111, 104, .08);
+}
+
+.pagina .depoimento p {
+  font-family: var(--fonte-titulo);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #33403c;
+  margin-bottom: 20px;
+}
+
+.pagina .depoimento footer { display: flex; flex-direction: column; }
+.pagina .depoimento strong { font-size: .95rem; color: #23302d; }
+.pagina .depoimento footer span { font-size: .8rem; color: var(--suave); }
+
+/* ---------- Contato ---------- */
+.pagina .contato {
+  color: #fff;
+  background: linear-gradient(150deg, var(--verde), var(--verde-escuro));
+}
+
+.pagina .contato .selo { background: rgba(255, 255, 255, .15); color: #fff; }
+.pagina .contato .titulo { color: #fff; }
+.pagina .contato__info > p { color: rgba(255, 255, 255, .8); }
+
+.pagina .contato__grade {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 56px;
+}
+
+.pagina .contato__lista {
+  list-style: none;
+  padding: 0;
+  margin-top: 28px;
+  display: grid;
+  gap: 18px;
+}
+
+.pagina .contato__lista li {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, .14);
+}
+
+.pagina .contato__rotulo {
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, .6);
+  margin-bottom: 4px;
+}
+
+.pagina .formulario {
+  display: grid;
+  gap: 18px;
+  padding: 34px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .97);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .2);
+}
+
+.pagina .formulario label { display: grid; gap: 7px; }
+
+.pagina .formulario label > span {
+  font-size: .85rem;
+  font-weight: 600;
+  color: #33403c;
+}
+
+.pagina .formulario input,
+.pagina .formulario textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(47, 111, 104, .2);
+  background: #fbf8f4;
+  font-family: inherit;
+  font-size: .95rem;
+  color: var(--texto);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.pagina .formulario input:focus,
+.pagina .formulario textarea:focus {
+  outline: none;
+  border-color: var(--verde);
+  box-shadow: 0 0 0 4px rgba(47, 111, 104, .12);
+}
+
+.pagina .formulario textarea { resize: vertical; }
+.pagina .formulario .botao { width: 100%; }
+
+/* ---------- Rodapé ---------- */
+.pagina .rodape {
+  padding: 30px 0;
+  background: #183b36;
+  color: rgba(255, 255, 255, .7);
+}
+
+.pagina .rodape__interno {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.pagina .rodape__marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.pagina .rodape__nota { font-size: .85rem; }
+.pagina .rodape__redes { display: flex; gap: 18px; }
+
+.pagina .rodape__redes a {
+  color: rgba(255, 255, 255, .75);
+  font-size: .9rem;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.pagina .rodape__redes a:hover { color: #fff; }
+
+/* ---------- Animação de entrada ---------- */
+.pagina .revelar {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.pagina .revelar.visivel { opacity: 1; transform: none; }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 900px) {
+  .pagina .hero__grade,
+  .pagina .sobre__grade,
+  .pagina .contato__grade {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .pagina .cartoes,
+  .pagina .equipe,
+  .pagina .depoimentos { grid-template-columns: 1fr; }
+  .pagina .navegacao { display: none; }
+  .pagina .sobre__midia { max-width: 360px; }
+  .pagina .hero__arte { min-height: 300px; }
+  .pagina .indicadores { gap: 24px; }
+}
+
+@media (max-width: 560px) {
+  .pagina .secao { padding: 60px 0; }
+  .pagina .beneficios { grid-template-columns: 1fr; }
+  .pagina .cabecalho__cta { display: none; }
+  .pagina .sobre__selo { right: 8px; }
+}
